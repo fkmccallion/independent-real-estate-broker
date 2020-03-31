@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_204155) do
+ActiveRecord::Schema.define(version: 2020_03_31_222156) do
 
   create_table "agents", force: :cascade do |t|
     t.string "first_name"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_204155) do
     t.float "bath"
     t.integer "sqft"
     t.date "transaction_date"
+    t.string "client"
     t.index ["agent_id"], name: "index_properties_on_agent_id"
   end
 
