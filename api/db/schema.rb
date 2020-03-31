@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_175732) do
+ActiveRecord::Schema.define(version: 2020_03_31_201234) do
 
   create_table "agents", force: :cascade do |t|
     t.string "first_name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_03_31_175732) do
     t.integer "bre_number"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "title"
+    t.string "img_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "property_id"
+    t.index ["property_id"], name: "index_images_on_property_id"
+  end
+
   create_table "properties", force: :cascade do |t|
     t.string "address"
     t.string "city"
@@ -34,6 +43,10 @@ ActiveRecord::Schema.define(version: 2020_03_31_175732) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "agent_id"
+    t.float "bed"
+    t.float "bath"
+    t.integer "sqft"
+    t.date "transaction_date"
     t.index ["agent_id"], name: "index_properties_on_agent_id"
   end
 
