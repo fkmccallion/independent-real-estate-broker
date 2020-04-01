@@ -1,2 +1,0 @@
-class PropertyImagesController < ApplicationController
-end
