@@ -1,4 +1,4 @@
-export default (state = [], action) => {
+export default (state = { agents: [], requesting: false}, action) => {
 
   const BASE_URL = "http://localhost:3000"
   const AGENTS_URL = `${BASE_URL}/agents`
@@ -23,9 +23,25 @@ export default (state = [], action) => {
   }
 
   switch (action.type) {
+    case 'START_ADDING_AGENTS_REQUEST':
+      return {
+        ...state,
+        agents: [...state.agents],
+        requesting: true
+      }
+    case 'POPULATE_AGENTS':
+      return {
+        ...state,
+        agents: action.agents,
+        requesting: false
+      }
     case 'ADD_AGENT':
       addAgent();
-      return [...state, action.agent];
+      return {
+        ...state,
+        agents: action.agent,
+        requesting: false
+      }
     default:
       return state;
   }
