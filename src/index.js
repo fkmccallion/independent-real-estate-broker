@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -11,7 +12,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Admin from './containers/Admin';
 import Agents from './containers/Agents';
 
-let store = createStore(rootReducer)
+let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
