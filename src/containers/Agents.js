@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Agent from '../components/Agent';
+import { fetchAgents } from '../actions/agents';
 
 class Agents extends Component {
+
+  componentDidMount() {
+    console.log(this.props)
+    this.props.fetchAgents()
+  }
 
   render() {
     return (
@@ -17,8 +23,14 @@ class Agents extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    agents: state.agents
+    agents: state.agents.agents
   };
 };
 
-export default connect(mapStateToProps)(Agents);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchAgents: () => dispatch(fetchAgents())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Agents);
