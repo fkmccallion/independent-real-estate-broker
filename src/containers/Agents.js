@@ -7,13 +7,15 @@ import { fetchAgents } from '../actions/agents';
 class Agents extends Component {
 
   componentDidMount() {
-    console.log(this.props)
+
     this.props.fetchAgents()
+    
   }
 
   render() {
     return (
       <div>
+        <h1>Agents</h1>
         {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
