@@ -9,6 +9,7 @@ import rootReducer from './reducers/index'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Admin from './containers/Admin';
+import Agents from './containers/Agents';
 
 let store = createStore(rootReducer)
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Router>
         <div>
           <Route exact path="/admin" component={Admin} />
+          <Route exact path="/agents" component={Agents} />
         </div>
       </Router>
     </Provider>
