@@ -6,13 +6,20 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Admin from './containers/Admin';
 
 let store = createStore(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Router>
+        <div>
+          <Route exact path="/admin" component={Admin} />
+        </div>
+      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
