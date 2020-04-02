@@ -2,7 +2,7 @@ import React from 'react'
 
 const Agent = props => {
   return (
-    <div>{props.greeting}</div>
+    <div>{props.agent.first_name}</div>
   )
 }
 

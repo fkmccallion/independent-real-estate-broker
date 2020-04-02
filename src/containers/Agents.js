@@ -8,7 +8,7 @@ class Agents extends Component {
   render() {
     return (
       <div>
-        {this.props.agents.map(agent => <Agent agent={agent})}
+        {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
   }

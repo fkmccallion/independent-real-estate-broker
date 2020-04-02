@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addAgent } from '../actions/agents';
 import AgentInput from '../components/AgentInput';
 
 class Admin extends Component {
