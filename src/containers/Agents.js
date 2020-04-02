@@ -9,16 +9,18 @@ class Agents extends Component {
   componentDidMount() {
 
     this.props.fetchAgents()
-    
+
   }
 
   render() {
+
     return (
       <div>
         <h1>Agents</h1>
         {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
+    
   }
 
 }
