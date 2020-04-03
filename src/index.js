@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import Navbar from './components/Navbar'
 import Admin from './containers/Admin';
 import Agents from './containers/Agents';
 
@@ -19,6 +20,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <div>
+          <Navbar />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/agents" component={Agents} />
         </div>

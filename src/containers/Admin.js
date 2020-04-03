@@ -7,17 +7,16 @@ import '../admin.css';
 
 class Admin extends Component {
 
-  componentDidMount() {
+    componentDidMount() {
 
-    this.props.fetchAgents()
+      this.props.fetchAgents()
 
-  }
+    }
 
   render() {
     return (
       <div>
         <h1>Admin</h1>
-        {console.log(this.props.agents)}
         <AgentInput />
         <AgentUpdate agents={this.props.agents} />
       </div>

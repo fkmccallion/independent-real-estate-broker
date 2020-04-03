@@ -5,10 +5,10 @@ export const addAgent = agent => {
   };
 };
 
-export const updateAgent = agent_id => {
+export const updateAgent = agent => {
   return {
     type: 'UPDATE_AGENT',
-    agent_id
+    agent
   }
 }
 
