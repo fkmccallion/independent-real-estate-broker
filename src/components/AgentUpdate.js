@@ -34,7 +34,7 @@ class AgentUpdate extends Component {
           {this.props.agents.map(agent => <option value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
 
-        <div>
+        <div className="admin-hide">
           <form onSubmit={event => this.handleSubmit(event)}>
             <p>
               <label>
@@ -104,6 +104,7 @@ class AgentUpdate extends Component {
             <input type="submit" />
           </form>
         </div>
+
       </div>
     )
   }

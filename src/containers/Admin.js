@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AgentInput from '../components/AgentInput';
 import AgentUpdate from '../components/AgentUpdate';
 import { fetchAgents } from '../actions/agents';
+import '../admin.css';
 
 class Admin extends Component {
 
