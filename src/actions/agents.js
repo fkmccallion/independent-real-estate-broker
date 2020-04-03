@@ -5,6 +5,13 @@ export const addAgent = agent => {
   };
 };
 
+export const updateAgent = agent_id => {
+  return {
+    type: 'UPDATE_AGENT',
+    agent_id
+  }
+}
+
 export function fetchAgents() {
   const BASE_URL = "http://localhost:3000"
   const AGENTS_URL = `${BASE_URL}/agents`
