@@ -5,10 +5,8 @@ const Agent = props => {
   return (
 
     <div>
-
       <p>
-
-        <h2>{props.agent.first_name + " " + props.agent.last_name}</h2>
+        <b>{props.agent.first_name + " " + props.agent.last_name}</b>
       </p>
     </div>
   )

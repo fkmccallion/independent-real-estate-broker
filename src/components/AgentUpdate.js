@@ -16,7 +16,9 @@ class AgentUpdate extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.updateAgent(this.state)
+    if (this.state.id !== "") {
+      this.props.updateAgent(this.state)
+    }
     this.setState({
       id: 0,
       first_name: "",
@@ -26,6 +28,7 @@ class AgentUpdate extends Component {
       email: "",
       bre_number: ""
     });
+    document.getElementById("adminUpdateForm").classList.add("admin-hide")
   };
 
   handleChange = event => {
@@ -35,17 +38,31 @@ class AgentUpdate extends Component {
   };
 
   handleSelection = event => {
-    document.getElementById("adminUpdateForm").classList.remove("admin-hide")
-    let selectedAgent = this.props.agents.find(agent => agent.id == event.target.value)
-    this.setState({
-      id: selectedAgent.id,
-      first_name: selectedAgent.first_name,
-      last_name: selectedAgent.last_name,
-      biography: selectedAgent.biography,
-      phone: selectedAgent.phone,
-      email: selectedAgent.email,
-      bre_number: selectedAgent.bre_number
-    })
+    if (event.target.value !== "")
+    {
+      document.getElementById("adminUpdateForm").classList.remove("admin-hide")
+      let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
+      this.setState({
+        id: selectedAgent.id,
+        first_name: selectedAgent.first_name,
+        last_name: selectedAgent.last_name,
+        biography: selectedAgent.biography,
+        phone: selectedAgent.phone,
+        email: selectedAgent.email,
+        bre_number: selectedAgent.bre_number
+      })
+    } else {
+      this.setState({
+        id: 0,
+        first_name: "",
+        last_name: "",
+        biography: "",
+        phone: "",
+        email: "",
+        bre_number: ""
+      });
+      document.getElementById("adminUpdateForm").classList.add("admin-hide")
+    }
   }
 
   render() {
@@ -53,9 +70,9 @@ class AgentUpdate extends Component {
     return(
       <div>
         <h3>Agent Update</h3>
-        <label for="agentSelect">SELECT AGENT:</label>
+        <label htmlFor="agentSelect">SELECT AGENT:</label>
         <select id="agentSelect" onChange={event => this.handleSelection(event)}>
-
+          <option value="">Choose:</option>
           {this.props.agents.map(agent => <option value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
 
