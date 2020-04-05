@@ -44,14 +44,17 @@ class AgentInput extends Component {
   };
 
   fileUploadHandler = event => {
+    const BASE_URL = "http://localhost:3000"
+    const IMAGES_URL = `${BASE_URL}/images`
+
     event.preventDefault();
     const data = new FormData()
     data.append('image', this.state.selectedFile, this.state.selectedFile.name)
-    axios.post("http://localhost:3000/agents", data)
-    .then(res => { // then print response status
-        console.log(res.statusText)
-      })
-    }
+    fetch(`${IMAGES_URL}`, {
+      method: "POST",
+      body: data
+    })
+  }
 
   render() {
     return(
