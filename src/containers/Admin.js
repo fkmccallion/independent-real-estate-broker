@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AgentInput from '../components/AgentInput';
 import AgentUpdate from '../components/AgentUpdate';
+import AgentDelete from '../components/AgentDelete';
 import { fetchAgents } from '../actions/agents';
 import '../admin.css';
 
@@ -19,6 +20,7 @@ class Admin extends Component {
         <h1>Admin</h1>
         <AgentInput />
         <AgentUpdate agents={this.props.agents} />
+        <AgentDelete agents={this.props.agents} />
       </div>
     )
   }

@@ -12,6 +12,13 @@ export const updateAgent = agent => {
   }
 }
 
+export const deleteAgent = agent_id => {
+  return {
+    type: 'DELETE_AGENT',
+    agent_id
+  }
+}
+
 export function fetchAgents() {
   const BASE_URL = "http://localhost:3000"
   const AGENTS_URL = `${BASE_URL}/agents`

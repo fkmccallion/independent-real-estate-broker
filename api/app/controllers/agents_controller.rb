@@ -22,4 +22,10 @@ class AgentsController < ApplicationController
     render json: AgentSerializer.new(agent).to_serialized_json
   end
 
+  def destroy
+    agent = Agent.find_by(id: params[:id])
+    agent.delete
+    render json: AgentSerializer.new(agent).to_serialized_json
+  end
+
 end

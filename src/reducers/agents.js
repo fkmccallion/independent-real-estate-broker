@@ -42,6 +42,20 @@ export default (state = { agents: [], requesting: false}, action) => {
     fetch(AGENTS_URL + `/${action.agent.id}`, configObj);
   }
 
+  function deleteAgent() {
+    let configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        'id': action.agent_id.id
+      })
+    };
+    fetch(AGENTS_URL + `/${action.agent_id.id}`, configObj);
+  }
+
   switch (action.type) {
     case 'START_ADDING_AGENTS_REQUEST':
       return {
@@ -62,6 +76,11 @@ export default (state = { agents: [], requesting: false}, action) => {
       }
     case 'UPDATE_AGENT':
       updateAgent();
+      return {
+        ...state
+      }
+    case 'DELETE_AGENT':
+      deleteAgent();
       return {
         ...state
       }
