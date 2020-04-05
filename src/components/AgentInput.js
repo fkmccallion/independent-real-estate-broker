@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addAgent } from '../actions/agents';
+import axios from 'axios';
 
 class AgentInput extends Component {
 
-  state = {
-    first_name: "",
-    last_name: "",
-    biography: "",
-    phone: "",
-    email: "",
-    bre_number: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      first_name: "",
+      last_name: "",
+      biography: "",
+      phone: "",
+      email: "",
+      bre_number: "",
+      selectedFile: null
+    };
   }
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
+    if (event.target.files[0]) {
+      this.setState({
+      selectedFile: event.target.files[0]
+    })
+    } else {
+      this.setState({
+        [event.target.name]: event.target.value
+      });
+    }
   };
 
   handleSubmit = event => {
@@ -31,6 +42,13 @@ class AgentInput extends Component {
       bre_number: ""
     });
   };
+
+  fileUploadHandler = event => {
+    event.preventDefault();
+    const data = new FormData()
+    data.append('file', this.state.selectedFile)
+    console.log(data)
+  }
 
   render() {
     return(
@@ -100,6 +118,13 @@ class AgentInput extends Component {
                 onChange={event => this.handleChange(event)}
                 value={this.state.bre_number}
               />
+            </label>
+          </p>
+          <p>
+            <label>
+              Image:
+              <input name="img_url" type="file" onChange={event => this.handleChange(event)} />
+              <button onClick={event => this.fileUploadHandler(event)}>Upload</button>
             </label>
           </p>
           <input type="submit" />
