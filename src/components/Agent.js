@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Agent = props => {
-  //<img src={require("../imgs/" + props.agent.img_url)} />
-  return (
 
+  return (
     <div>
+      <img src={ (props.agent.img_url !== null) ? require("../imgs/" + props.agent.img_url) : require("../imgs/semper-fi.gif") } alt={`${props.agent.first_name} ${props.agent.last_name} ${props.agent.bre_number}`} />
       <p>
         <b>{props.agent.first_name + " " + props.agent.last_name}</b>
       </p>
