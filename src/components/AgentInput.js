@@ -14,21 +14,25 @@ class AgentInput extends Component {
       phone: "",
       email: "",
       bre_number: "",
-      selectedFile: null
+      image: null
     };
   }
 
   handleChange = event => {
-    if (event.target.files[0]) {
-      this.setState({
-      selectedFile: event.target.files[0]
-    })
-    } else {
-      this.setState({
-        [event.target.name]: event.target.value
-      });
-    }
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   };
+
+  fileSelectedHandler = event => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
+
+  fileUploadHandler = () =>  {
+    axios.post()
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -39,22 +43,30 @@ class AgentInput extends Component {
       biography: "",
       phone: "",
       email: "",
-      bre_number: ""
+      bre_number: "",
+      selectedFile: null
     });
   };
 
-  fileUploadHandler = event => {
-    const BASE_URL = "http://localhost:3000"
-    const IMAGES_URL = `${BASE_URL}/images`
-
-    event.preventDefault();
-    const data = new FormData()
-    data.append('image', this.state.selectedFile, this.state.selectedFile.name)
-    fetch(`${IMAGES_URL}`, {
-      method: "POST",
-      body: data
-    })
-  }
+  // fileUploadHandler = event => {
+  //   event.preventDefault();
+  //   const data = new FormData()
+  //   data.append('image', this.state.selectedFile, this.state.selectedFile.name)
+  //
+  //   const BASE_URL = "http://localhost:3000"
+  //   const AGENTS_URL = `${BASE_URL}/agents`
+  //
+  //   const config = {
+  //     method: "POST",
+  //     headers: {
+  //       "Authorization": localStorage.getItem("token"),
+  //       "Accept": "application/json"
+  //     },
+  //     body: data
+  //   }
+  //   return fetch(`${AGENTS_URL}`, config)
+  //     .then(res => res.json());
+  // }
 
   render() {
     return(
@@ -129,8 +141,8 @@ class AgentInput extends Component {
           <p>
             <label>
               Image:
-              <input name="img_url" type="file" onChange={event => this.handleChange(event)} />
-              <button onClick={event => this.fileUploadHandler(event)}>Upload</button>
+              <input name="image" type="file" accept="image/*" onChange={this.fileSelectedHandler} />
+              <button onClick={this.fileUploadHandler}>Upload</button>
             </label>
           </p>
           <input type="submit" />

@@ -1,17 +1,13 @@
 class ImagesController < ApplicationController
 
   def index
-    #images = Image.all
-    #render json: ImageSerializer.new(images).to_serialized_json
-
-    binding.pry
+    images = Image.all
+    render json: ImageSerializer.new(images).to_serialized_json
   end
 
   def show
-    #image = Image.find_by(id: params[:id])
-    #render json: ImageSerializer.new(image).to_serialized_json
-
-    binding.pry
+    image = Image.find_by(id: params[:id])
+    render json: ImageSerializer.new(image).to_serialized_json
   end
 
   def create
