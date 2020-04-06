@@ -139,7 +139,7 @@ class AgentInput extends Component {
           </p>
           <p>
             <label>
-              Image:
+              Profile Picture:
               <input name="image" type="file" accept="image/*" onChange={this.fileSelectedHandler} />
               <button onClick={this.fileUploadHandler}>Upload</button>
             </label>
