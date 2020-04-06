@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addAgent } from '../actions/agents';
 import { storage } from '../firebase';
-import axios from 'axios';
 
 class AgentInput extends Component {
 
@@ -15,6 +14,7 @@ class AgentInput extends Component {
       phone: "",
       email: "",
       bre_number: "",
+      img_url: "",
       image: null
     };
   }
@@ -31,8 +31,8 @@ class AgentInput extends Component {
     })
   }
 
-  fileUploadHandler = () =>  {
-
+  fileUploadHandler = event =>  {
+    event.preventDefault();
     const image = this.state.image
     const uploadTask = storage.ref(`images/${image.name}`).put(image)
     uploadTask.on('state_changed',
@@ -46,13 +46,14 @@ class AgentInput extends Component {
       (complete) => {
         // complete function
         storage.ref('images').child(image.name).getDownloadURL().then(url => {
-          console.log(url)
+          this.setState({
+            img_url: url
+          })
         })
       });
   }
 
   handleSubmit = event => {
-    event.preventDefault();
     this.props.addAgent(this.state)
     this.setState({
       first_name: "",
@@ -61,29 +62,10 @@ class AgentInput extends Component {
       phone: "",
       email: "",
       bre_number: "",
+      img_url: "",
       selectedFile: null
     });
   };
-
-  // fileUploadHandler = event => {
-  //   event.preventDefault();
-  //   const data = new FormData()
-  //   data.append('image', this.state.selectedFile, this.state.selectedFile.name)
-  //
-  //   const BASE_URL = "http://localhost:3000"
-  //   const AGENTS_URL = `${BASE_URL}/agents`
-  //
-  //   const config = {
-  //     method: "POST",
-  //     headers: {
-  //       "Authorization": localStorage.getItem("token"),
-  //       "Accept": "application/json"
-  //     },
-  //     body: data
-  //   }
-  //   return fetch(`${AGENTS_URL}`, config)
-  //     .then(res => res.json());
-  // }
 
   render() {
     return(

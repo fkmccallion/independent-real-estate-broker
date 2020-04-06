@@ -4,6 +4,7 @@ export default (state = { agents: [], requesting: false}, action) => {
   const AGENTS_URL = `${BASE_URL}/agents`
 
   function addAgent() {
+    console.log(action)
     let configObj = {
       method: "POST",
       headers: {
@@ -16,7 +17,8 @@ export default (state = { agents: [], requesting: false}, action) => {
         'biography': action.agent.biography,
         'phone': action.agent.phone,
         'email': action.agent.email,
-        'bre_number': action.agent.bre_number
+        'bre_number': action.agent.bre_number,
+        'img_url': action.agent.img_url
       })
     };
     fetch(AGENTS_URL, configObj);
@@ -36,7 +38,8 @@ export default (state = { agents: [], requesting: false}, action) => {
         'biography': action.agent.biography,
         'phone': action.agent.phone,
         'email': action.agent.email,
-        'bre_number': action.agent.bre_number
+        'bre_number': action.agent.bre_number,
+        'img_url': action.agent.img_url
       })
     };
     fetch(AGENTS_URL + `/${action.agent.id}`, configObj);

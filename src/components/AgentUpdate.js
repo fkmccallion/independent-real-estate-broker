@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateAgent } from '../actions/agents';
+import { storage } from '../firebase';
 
 class AgentUpdate extends Component {
 
@@ -26,7 +27,8 @@ class AgentUpdate extends Component {
       biography: "",
       phone: "",
       email: "",
-      bre_number: ""
+      bre_number: "",
+      img_url: ""
     });
     document.getElementById("adminUpdateForm").classList.add("admin-hide")
   };
@@ -49,7 +51,8 @@ class AgentUpdate extends Component {
         biography: selectedAgent.biography,
         phone: selectedAgent.phone,
         email: selectedAgent.email,
-        bre_number: selectedAgent.bre_number
+        bre_number: selectedAgent.bre_number,
+        img_url: selectedAgent.img_url
       })
     } else {
       this.setState({
@@ -59,10 +62,39 @@ class AgentUpdate extends Component {
         biography: "",
         phone: "",
         email: "",
-        bre_number: ""
+        bre_number: "",
+        img_url: ""
       });
       document.getElementById("adminUpdateForm").classList.add("admin-hide")
     }
+  }
+
+  fileSelectedHandler = event => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
+
+  fileUploadHandler = event =>  {
+    event.preventDefault();
+    const image = this.state.image
+    const uploadTask = storage.ref(`images/${image.name}`).put(image)
+    uploadTask.on('state_changed',
+      (snapshot) => {
+        // progress function
+      },
+      (error) => {
+        // error function
+        console.log(error)
+      },
+      (complete) => {
+        // complete function
+        storage.ref('images').child(image.name).getDownloadURL().then(url => {
+          this.setState({
+            img_url: url
+          })
+        })
+      });
   }
 
   render() {
@@ -75,7 +107,6 @@ class AgentUpdate extends Component {
           <option value="">Choose:</option>
           {this.props.agents.map(agent => <option value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
-
         <div id="adminUpdateForm" className="admin-hide">
           <form onSubmit={event => this.handleSubmit(event)}>
             <p>
@@ -143,10 +174,18 @@ class AgentUpdate extends Component {
                 />
               </label>
             </p>
+            <p>
+              <label>
+                Update Photo:
+                <input name="image" type="file" accept="image/*" onChange={this.fileSelectedHandler} />
+                <button onClick={this.fileUploadHandler}>Upload</button>
+              </label>
+            </p>
             <input type="submit" />
           </form>
+          <h4>Current Photo</h4>
+          <img src={ this.state.img_url ?  this.state.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt="" />
         </div>
-
       </div>
     )
   }
