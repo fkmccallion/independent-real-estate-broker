@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addAgent } from '../actions/agents';
+import { storage } from '../firebase';
 import axios from 'axios';
 
 class AgentInput extends Component {
@@ -31,7 +32,23 @@ class AgentInput extends Component {
   }
 
   fileUploadHandler = () =>  {
-    axios.post()
+
+    const image = this.state.image
+    const uploadTask = storage.ref(`images/${image.name}`).put(image)
+    uploadTask.on('state_changed',
+      (snapshot) => {
+        // progress function
+      },
+      (error) => {
+        // error function
+        console.log(error)
+      },
+      (complete) => {
+        // complete function
+        storage.ref('images').child(image.name).getDownloadURL().then(url => {
+          console.log(url)
+        })
+      });
   }
 
   handleSubmit = event => {
