@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Admin from './containers/Admin';
 import Agents from './containers/Agents';
+import Properties from './containers/Properties';
 
 let store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Navbar />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/agents" component={Agents} />
+          <Route exact path="/properties" component={Properties} />
         </div>
       </Router>
     </Provider>

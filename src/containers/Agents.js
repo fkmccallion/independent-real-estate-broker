@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Agent from '../components/Agent';
 import { fetchAgents } from '../actions/agents';
 
+import '../agents.css';
+
 class Agents extends Component {
 
   componentDidMount() {
@@ -20,7 +22,7 @@ class Agents extends Component {
         {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
-    
+
   }
 
 }
