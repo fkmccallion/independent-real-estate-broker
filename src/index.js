@@ -23,8 +23,8 @@ ReactDOM.render(
         <div>
           <Navbar />
           <Route exact path="/admin" component={Admin} />
-          <Route exact path="/agents" component={Agents} />
           <Route exact path="/properties" component={Properties} />
+          <Route exact path="/agents" component={Agents} />
         </div>
       </Router>
     </Provider>
