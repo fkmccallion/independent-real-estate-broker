@@ -101,11 +101,11 @@ class AgentUpdate extends Component {
 
     return(
       <div>
-        <h3>Agent Update</h3>
+        <h3>Update Agent</h3>
         <label htmlFor="agentSelect">SELECT AGENT:</label>
         <select id="agentSelect" onChange={event => this.handleSelection(event)}>
           <option value="">Choose:</option>
-          {this.props.agents.map(agent => <option value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
+          {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="adminUpdateForm" className="admin-hide">
           <form onSubmit={event => this.handleSubmit(event)}>

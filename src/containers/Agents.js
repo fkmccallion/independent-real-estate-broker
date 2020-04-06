@@ -19,7 +19,7 @@ class Agents extends Component {
     return (
       <div>
         <h1>Agents</h1>
-        {this.props.agents.map(agent => <Agent agent={agent} />)}
+        {this.props.agents.map(agent => <Agent key={agent.id} agent={agent} />)}
       </div>
     )
 

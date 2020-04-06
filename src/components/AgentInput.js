@@ -70,7 +70,7 @@ class AgentInput extends Component {
   render() {
     return(
       <div>
-        <h3>Agent Input</h3>
+        <h3>Add Agent</h3>
         <form onSubmit={event => this.handleSubmit(event)}>
           <p>
             <label>

@@ -17,7 +17,7 @@ class Properties extends Component {
     return (
       <div>
         <h1>Properties</h1>
-        {this.props.properties.map(property => <Property property={property} />)}
+        {this.props.properties.map(property => <Property key={property.id} property={property} />)}
       </div>
     )
 
