@@ -22,9 +22,11 @@ ReactDOM.render(
       <Router>
         <div>
           <Navbar />
+          <Route exact path="/" component={App} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/properties" component={Properties} />
           <Route exact path="/agents" component={Agents} />
+          <App />
         </div>
       </Router>
     </Provider>
