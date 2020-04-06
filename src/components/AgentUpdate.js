@@ -183,7 +183,7 @@ class AgentUpdate extends Component {
             <input type="submit" />
           </form>
           <h4>Current Photo</h4>
-          <img src={ this.state.img_url ?  this.state.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt="" />
+          <img className="agent-image" src={ this.state.img_url ?  this.state.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt="" />
         </div>
       </div>
     )

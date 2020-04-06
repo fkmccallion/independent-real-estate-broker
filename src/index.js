@@ -7,28 +7,15 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Navbar from './components/Navbar'
-import Admin from './containers/Admin';
-import Agents from './containers/Agents';
-import Properties from './containers/Properties';
 
 let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
         <div>
-          <Navbar />
-          <Route exact path="/" component={App} />
-          <Route exact path="/admin" component={Admin} />
-          <Route exact path="/properties" component={Properties} />
-          <Route exact path="/agents" component={Agents} />
           <App />
         </div>
-      </Router>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
