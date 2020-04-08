@@ -50,7 +50,6 @@ class AgentUpdate extends Component {
       document.getElementById("adminUpdateForm").classList.remove("admin-hide")
       let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
       let selectedAgentProperties = this.props.properties.filter(property => property.agent_id === selectedAgent.id)
-      console.log(selectedAgentProperties)
       this.setState({
         id: selectedAgent.id,
         first_name: selectedAgent.first_name,

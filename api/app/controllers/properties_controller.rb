@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    Property.create(address: params[:address], city: params[:city], state: params[:state], zip: params[:zip], price: params[:price], sold: params[:sold], transaction_date: params[:transaction_date], client: params[:client], bed: params[:bed], bath: params[:bath], sqft: params[:sqft])
+    Property.create(address: params[:address], city: params[:city], state: params[:state], zip: params[:zip], price: params[:price], sold: params[:sold], transaction_date: params[:transaction_date], client: params[:client], bed: params[:bed], bath: params[:bath], sqft: params[:sqft], agent_id: params[:agent_id])
     properties = Property.all
     render json: PropertySerializer.new(properties).to_serialized_json
   end

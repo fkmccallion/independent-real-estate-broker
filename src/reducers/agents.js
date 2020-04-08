@@ -4,7 +4,6 @@ export default (state = { agents: [], requesting: false}, action) => {
   const AGENTS_URL = `${BASE_URL}/agents`
 
   function addAgent() {
-    console.log(action)
     let configObj = {
       method: "POST",
       headers: {
