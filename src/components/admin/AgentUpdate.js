@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { updateAgent } from '../../actions/agents';
 import { storage } from '../../firebase';
 
+import PropertyInput from './PropertyInput';
+
 class AgentUpdate extends Component {
 
   state = {
@@ -104,6 +106,16 @@ class AgentUpdate extends Component {
       });
   }
 
+  editProperty = (event, propertyId) => {
+    event.preventDefault();
+    console.log(propertyId)
+  }
+
+  addNewProperty = (event, agentId) => {
+    event.preventDefault();
+    console.log(agentId)
+  }
+
   render() {
 
     return(
@@ -192,6 +204,7 @@ class AgentUpdate extends Component {
             <input type="submit" value="Submit Agent Update" />
           </form>
           <h4>Properties:</h4>
+          <PropertyInput agentId={this.state.id} />
           {this.state.properties.map(property =>
             <p>
               {property.address}<br />
@@ -200,6 +213,7 @@ class AgentUpdate extends Component {
               <button onClick={event => this.editProperty(event, property.id)}>Edit {property.address}</button>
             </p>
           )}
+
         </div>
       </div>
     )

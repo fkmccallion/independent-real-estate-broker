@@ -1,3 +1,10 @@
+export const addProperty = property => {
+  return {
+    type: 'ADD_PROPERTY',
+    property
+  };
+};
+
 export function fetchProperties() {
   const BASE_URL = "http://localhost:3000"
   const PROPERTIES_URL = `${BASE_URL}/properties`
