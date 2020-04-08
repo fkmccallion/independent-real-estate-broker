@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchProperties } from '../actions/properties';
-import Property from '../components/Property';
+import Property from '../components/properties/Property';
 
 class Properties extends Component {
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAgents } from '../actions/agents';
+import { fetchProperties } from '../actions/properties';
 import '../admin.css';
 
 import AgentInput from '../components/admin/AgentInput';
@@ -15,6 +16,7 @@ class Admin extends Component {
     componentDidMount() {
 
       this.props.fetchAgents()
+      this.props.fetchProperties()
 
     }
 
@@ -22,10 +24,11 @@ class Admin extends Component {
     return (
       <div>
         <h1>Admin</h1>
+        {console.log(this.props)}
         <Router>
           <NavbarAdmin />
           <Route exact path="/admin/new" component={AgentInput} />
-          <Route exact path="/admin/update" render={(props) => <AgentUpdate agents={this.props.agents} />} />
+          <Route exact path="/admin/update" render={(props) => <AgentUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
         </Router>
 
@@ -37,13 +40,15 @@ class Admin extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    agents: state.agents.agents
+    agents: state.agents.agents,
+    properties: state.properties.properties
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAgents: () => dispatch(fetchAgents())
+    fetchAgents: () => dispatch(fetchAgents()),
+    fetchProperties: () => dispatch(fetchProperties())
   };
 };
 
