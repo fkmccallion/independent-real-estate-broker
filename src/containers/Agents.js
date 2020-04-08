@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Agent from '../components/Agent';
-import AgentShow from '../components/AgentShow';
 import { fetchAgents } from '../actions/agents';
 
-import '../agents.css';
-
+import Agent from '../components/agents/Agent';
+import NavbarAgents from '../components/agents/NavbarAgents';
 
 class Agents extends Component {
 
@@ -17,20 +14,14 @@ class Agents extends Component {
   }
 
   render() {
-    const renderAgents = Object.keys(this.props.agents).map(agentID =>
-      <Link key={agentID} to={`/agents/${agentID}`}><Agent key={this.props.agents[agentID]} agent={this.props.agents[agentID]} /></Link>
-    );
-
-    return (
+    return(
       <div>
-        <h1>Agents</h1>
-        {renderAgents}
-        {console.log(`${this.props.match.url}/:agentID`)}
-        <Route exact path={`${this.props.match.url}/:agentID`} render={routerProps => <AgentShow {...routerProps} agents={this.props.agents} />}/>
-
-    </div>
+        <Router>
+          <NavbarAgents agents={this.props.agents} />
+          <Route exact path={`${this.props.match.url}/:agentId`} render={routerProps => <Agent {...routerProps} agents={this.props.agents} />}/>
+        </Router>
+      </div>
     )
-
   }
 
 }
