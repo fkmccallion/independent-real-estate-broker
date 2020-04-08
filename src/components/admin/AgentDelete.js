@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteAgent } from '../actions/agents';
+import { deleteAgent } from '../../actions/agents';
 
 class AgentDelete extends Component {
 

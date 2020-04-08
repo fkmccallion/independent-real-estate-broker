@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addAgent } from '../actions/agents';
-import { storage } from '../firebase';
+import { addAgent } from '../../actions/agents';
+import { storage } from '../../firebase';
 
 class AgentInput extends Component {
 

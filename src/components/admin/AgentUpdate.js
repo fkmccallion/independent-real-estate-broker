@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateAgent } from '../actions/agents';
-import { storage } from '../firebase';
+import { updateAgent } from '../../actions/agents';
+import { storage } from '../../firebase';
 
 class AgentUpdate extends Component {
 

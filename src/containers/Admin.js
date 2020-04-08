@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { fetchAgents } from '../actions/agents';
 import '../admin.css';
 
-import AgentInput from '../components/AgentInput';
-import AgentUpdate from '../components/AgentUpdate';
-import AgentDelete from '../components/AgentDelete';
+import AgentInput from '../components/admin/AgentInput';
+import AgentUpdate from '../components/admin/AgentUpdate';
+import AgentDelete from '../components/admin/AgentDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NavbarAdmin from '../components/NavbarAdmin'
+import NavbarAdmin from '../components/admin/NavbarAdmin'
 
 class Admin extends Component {
 
