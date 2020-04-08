@@ -5,6 +5,13 @@ export const addProperty = property => {
   };
 };
 
+export const deleteProperty = propertyId => {
+  return {
+    type: 'DELETE_PROPERTY',
+    propertyId
+  };
+};
+
 export function fetchProperties() {
   const BASE_URL = "http://localhost:3000"
   const PROPERTIES_URL = `${BASE_URL}/properties`

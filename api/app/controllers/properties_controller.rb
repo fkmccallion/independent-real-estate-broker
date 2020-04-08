@@ -22,4 +22,10 @@ class PropertiesController < ApplicationController
     render json: PropertySerializer.new(property).to_serialized_json
   end
 
+  def destroy
+    property = Property.find_by(id: params[:id])
+    property.delete
+    render json: AgentSerializer.new(property).to_serialized_json
+  end
+
 end

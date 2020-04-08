@@ -28,6 +28,20 @@ export default (state = { properties: [], requesting: false}, action) => {
     fetch(PROPERTIES_URL, configObj);
   }
 
+  function deleteProperty() {
+    let configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        'id': action.propertyId.id
+      })
+    };
+    fetch(PROPERTIES_URL + `/${action.propertyId.id}`, configObj);
+  }
+
   switch (action.type) {
     case 'START_ADDING_PROPERTIES_REQUEST':
       return {
@@ -43,6 +57,11 @@ export default (state = { properties: [], requesting: false}, action) => {
       }
     case 'ADD_PROPERTY':
       addProperty();
+      return {
+        ...state
+      }
+    case 'DELETE_PROPERTY':
+      deleteProperty();
       return {
         ...state
       }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateAgent } from '../../actions/agents';
+import { deleteProperty } from '../../actions/properties';
 import { storage } from '../../firebase';
 
-import PropertyInput from './PropertyInput';
+import PropertyInput from '../properties/PropertyInput';
+import PropertyUpdate from '../properties/PropertyUpdate';
 
 class AgentUpdate extends Component {
 
@@ -110,9 +112,9 @@ class AgentUpdate extends Component {
     console.log(propertyId)
   }
 
-  addNewProperty = (event, agentId) => {
+  deleteProperty = (event, propertyId) => {
     event.preventDefault();
-    console.log(agentId)
+    this.props.deleteProperty({id: propertyId})
   }
 
   render() {
@@ -209,7 +211,8 @@ class AgentUpdate extends Component {
               {property.address}<br />
               {`${property.city}, ${property.state} ${property.zip}`}<br />
               {property.transaction_date ? property.transaction_date : null }<br />
-              <button onClick={event => this.editProperty(event, property.id)}>Edit {property.address}</button>
+              <button onClick={event => this.editProperty(event, property.id)}>Edit</button>
+              <button onClick={event => this.deleteProperty(event, property.id)}>Delete</button>
             </p>
           )}
 
@@ -222,6 +225,7 @@ class AgentUpdate extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     updateAgent: agent => dispatch(updateAgent(agent)),
+    deleteProperty: property_id => dispatch(deleteProperty(property_id))
   };
 };
 
