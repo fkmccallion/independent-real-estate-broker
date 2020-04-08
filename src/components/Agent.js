@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Agent = props => {
+const Agent = (props) => {
 
   return (
     <div>

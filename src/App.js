@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/properties" component={Properties} />
-        <Route exact path="/agents" component={Agents} />
+        <Route exact path="/agents" render={routerProps => <Agents {...routerProps} />} />
       </Router>
     </div>
   );
