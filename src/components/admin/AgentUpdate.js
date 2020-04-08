@@ -12,7 +12,9 @@ class AgentUpdate extends Component {
     biography: "",
     phone: "",
     email: "",
-    bre_number: ""
+    bre_number: "",
+    img_url: "",
+    properties: []
   }
 
   handleSubmit = event => {
@@ -28,7 +30,8 @@ class AgentUpdate extends Component {
       phone: "",
       email: "",
       bre_number: "",
-      img_url: ""
+      img_url: "",
+      properties: []
     });
     document.getElementById("adminUpdateForm").classList.add("admin-hide")
   };
@@ -44,6 +47,8 @@ class AgentUpdate extends Component {
     {
       document.getElementById("adminUpdateForm").classList.remove("admin-hide")
       let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
+      let selectedAgentProperties = this.props.properties.filter(property => property.agent_id === selectedAgent.id)
+      console.log(selectedAgentProperties)
       this.setState({
         id: selectedAgent.id,
         first_name: selectedAgent.first_name,
@@ -52,7 +57,8 @@ class AgentUpdate extends Component {
         phone: selectedAgent.phone,
         email: selectedAgent.email,
         bre_number: selectedAgent.bre_number,
-        img_url: selectedAgent.img_url
+        img_url: selectedAgent.img_url,
+        properties: selectedAgentProperties
       })
     } else {
       this.setState({
@@ -63,7 +69,8 @@ class AgentUpdate extends Component {
         phone: "",
         email: "",
         bre_number: "",
-        img_url: ""
+        img_url: "",
+        properties: []
       });
       document.getElementById("adminUpdateForm").classList.add("admin-hide")
     }
@@ -107,6 +114,8 @@ class AgentUpdate extends Component {
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="adminUpdateForm" className="admin-hide">
+          <h4>Current Photo</h4>
+          <img className="agent-image" src={ this.state.img_url ?  this.state.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt="" />
           <form onSubmit={event => this.handleSubmit(event)}>
             <p>
               <label>
@@ -180,10 +189,17 @@ class AgentUpdate extends Component {
                 <button onClick={this.fileUploadHandler}>Upload</button>
               </label>
             </p>
-            <input type="submit" />
+            <input type="submit" value="Submit Agent Update" />
           </form>
-          <h4>Current Photo</h4>
-          <img className="agent-image" src={ this.state.img_url ?  this.state.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt="" />
+          <h4>Properties:</h4>
+          {this.state.properties.map(property =>
+            <p>
+              {property.address}<br />
+              {`${property.city}, ${property.state} ${property.zip}`}<br />
+              {property.transaction_date ? property.transaction_date : null }<br />
+              <button onClick={event => this.editProperty(event, property.id)}>Edit {property.address}</button>
+            </p>
+          )}
         </div>
       </div>
     )
