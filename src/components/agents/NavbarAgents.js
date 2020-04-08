@@ -5,7 +5,7 @@ class NavbarAgents extends React.Component {
 
   render() {
     const renderAgents = Object.keys(this.props.agents).map(agentID =>
-      <NavLink to={`/agents/${agentID}`}>{this.props.agents[agentID].first_name}</NavLink>
+      <NavLink to={`/agents/${agentID}`}><img className="agent-image" src={this.props.agents[agentID].img_url} /></NavLink>
     );
 
     return (

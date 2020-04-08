@@ -7,6 +7,8 @@ import { fetchAgents } from '../actions/agents';
 import Agent from '../components/agents/Agent';
 import NavbarAgents from '../components/agents/NavbarAgents';
 
+import '../agents.css';
+
 class Agents extends Component {
 
   componentDidMount() {
