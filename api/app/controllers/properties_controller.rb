@@ -18,7 +18,7 @@ class PropertiesController < ApplicationController
 
   def update
     property = Property.find_by(id: params[:id])
-    property.update(address: params[:address], city: params[:city], state: params[:state], zip: params[:zip], price: params[:price], sold: params[:sold], transaction_date: params[:transaction_date], client: params[:client], bed: params[:bed], bath: params[:bath], sqft: params[:sqft])
+    property.update(address: params[:address], city: params[:city], state: params[:state], zip: params[:zip], price: params[:price], sold: params[:sold], transaction_date: params[:transaction_date], client: params[:client], bed: params[:bed], bath: params[:bath], sqft: params[:sqft], agent_id: params[:agent_id])
     render json: PropertySerializer.new(property).to_serialized_json
   end
 
