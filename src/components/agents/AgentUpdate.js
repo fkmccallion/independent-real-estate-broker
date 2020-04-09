@@ -4,10 +4,6 @@ import { updateAgent } from '../../actions/agents';
 import { deleteProperty } from '../../actions/properties';
 import { storage } from '../../firebase';
 
-import PropertyInput from '../properties/PropertyInput';
-import PropertyUpdate from '../properties/PropertyUpdate';
-import Property from '../properties/Property';
-
 
 class AgentUpdate extends Component {
 

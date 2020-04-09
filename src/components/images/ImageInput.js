@@ -99,7 +99,6 @@ class ImageInput extends Component {
         <h3>Add Property Image</h3>
         <select id="agentSelect" onChange={event => this.handleAgentSelection(event)}>
           <option value="">Select Agent:</option>
-          {console.log(this.props)}
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="adminAddPropertyImageForm" className="admin-hide">

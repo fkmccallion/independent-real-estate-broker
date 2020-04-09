@@ -61,7 +61,6 @@ class PropertyInput extends Component {
     {
       document.getElementById("adminAddPropertyUpdateForm").classList.remove("admin-hide")
       let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
-      let selectedAgentProperties = this.props.properties.filter(property => property.agent_id === selectedAgent.id)
       this.setState({
         agent_id: selectedAgent.id
       })

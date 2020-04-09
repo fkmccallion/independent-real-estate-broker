@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateProperty } from '../../actions/properties';
-import ImageInput from '../images/ImageInput';
 
 class PropertyUpdate extends Component {
 
@@ -19,7 +18,8 @@ class PropertyUpdate extends Component {
       bath: 0,
       sqft: 0,
       transaction_date: "",
-      client: ""
+      client: "",
+      properties: []
     }
   }
 
@@ -69,6 +69,55 @@ class PropertyUpdate extends Component {
     document.getElementById("adminUpdatePropertyUpdateForm").classList.add("admin-hide")
   };
 
+  handleSelection = event => {
+    document.getElementById("adminUpdatePropertyUpdateForm").classList.add("admin-hide")
+    if (event.target.value !== "")
+    {
+      let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
+      let selectedAgentProperties = this.props.properties.filter(property => property.agent_id === selectedAgent.id)
+      this.setState({
+        properties: selectedAgentProperties
+      })
+
+    } else {
+      this.setState({
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+        price: 0,
+        sold: false,
+        agent_id: 0,
+        bed: 0,
+        bath: 0,
+        sqft: 0,
+        transaction_date: "",
+        client: "",
+        properties: []
+      });
+    }
+  }
+
+  handleEditProperty = (event, property) => {
+    event.preventDefault();
+    this.setState({
+      id: property.id,
+      address: property.address ? property.address : "",
+      city: property.city ? property.city : "",
+      state: property.state ? property.state : "",
+      zip: property.zip ? property.zip : "",
+      price: property.price ? property.price : 0,
+      sold: property.sold ? property.sold : false,
+      agent_id: property.agent_id,
+      bed: property.bed ? property.bed : 0,
+      bath: property.bath ? property.bath : 0,
+      sqft: property.sqft ? property.sqft : 0,
+      transaction_date: property.transaction_date ? property.transaction_date : "",
+      client: property.client ? property.client : ""
+    });
+    document.getElementById("adminUpdatePropertyUpdateForm").classList.remove("admin-hide")
+  }
+
   render() {
     return(
       <div>
@@ -78,6 +127,7 @@ class PropertyUpdate extends Component {
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="adminUpdatePropertyUpdateForm" className="admin-hide">
+          <h4>Selected Property: {this.state.address}</h4>
           <form onSubmit={event => this.handlePropertyUpdateSubmit(event)}>
             <p>
               <label>
@@ -202,8 +252,8 @@ class PropertyUpdate extends Component {
             </p>
             <input type="submit" value="Submit Property Update" />
           </form>
-          <ImageInput property={this.state} />
         </div>
+        {this.state.properties.map(property => <p>{property.address}<button onClick={event => this.handleEditProperty(event, property)}>Edit Property</button></p>)}
       </div>
     )
   }

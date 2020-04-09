@@ -74,9 +74,7 @@ export default (state = { agents: [], requesting: false}, action) => {
     case 'ADD_AGENT':
       addAgent();
       return {
-        ...state,
-        agents: [...state.agents],
-        requesting: false
+        ...state
       }
     case 'UPDATE_AGENT':
       updateAgent();

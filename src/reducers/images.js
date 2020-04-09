@@ -36,9 +36,7 @@ export default (state = { images: [], requesting: false}, action) => {
     console.log(action)
       addImage();
       return {
-        ...state,
-        images: [...state.images],
-        requesting: false
+        ...state
       }
     default:
       return state;
