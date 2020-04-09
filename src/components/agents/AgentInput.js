@@ -17,7 +17,7 @@ class AgentInput extends Component {
       img_url: "",
       image: null
     };
-  }
+  } 
 
   handleChange = event => {
     this.setState({

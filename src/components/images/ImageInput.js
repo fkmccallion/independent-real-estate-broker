@@ -46,7 +46,6 @@ class ImageInput extends Component {
   }
 
   handlePropertyImageChange = event => {
-    console.log(this.props)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -56,7 +55,6 @@ class ImageInput extends Component {
     event.preventDefault();
     this.props.addImage(this.state)
     document.getElementById("adminAddPropertyImageForm").classList.add("admin-hide");
-    console.log(this.state)
     this.setState({
       title: "",
       img_url: "",
@@ -65,7 +63,7 @@ class ImageInput extends Component {
     });
   };
 
-  handleSelection = event => {
+  handleAgentSelection = event => {
     document.getElementById("adminAddPropertyImageForm").classList.add("admin-hide")
     if (event.target.value !== "")
     {
@@ -99,8 +97,9 @@ class ImageInput extends Component {
     return(
       <div>
         <h3>Add Property Image</h3>
-        <select id="agentSelect" onChange={event => this.handleSelection(event)}>
+        <select id="agentSelect" onChange={event => this.handleAgentSelection(event)}>
           <option value="">Select Agent:</option>
+          {console.log(this.props)}
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="adminAddPropertyImageForm" className="admin-hide">

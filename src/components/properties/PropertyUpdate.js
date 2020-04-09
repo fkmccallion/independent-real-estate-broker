@@ -5,20 +5,22 @@ import ImageInput from '../images/ImageInput';
 
 class PropertyUpdate extends Component {
 
-  state = {
-    id: 0,
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    price: 0,
-    sold: false,
-    agent_id: 0,
-    bed: 0,
-    bath: 0,
-    sqft: 0,
-    transaction_date: "",
-    client: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      price: 0,
+      sold: false,
+      agent_id: 0,
+      bed: 0,
+      bath: 0,
+      sqft: 0,
+      transaction_date: "",
+      client: ""
+    }
   }
 
   editExistingProperty = (event, property) => {
@@ -70,7 +72,11 @@ class PropertyUpdate extends Component {
   render() {
     return(
       <div>
-        <button onClick={event => this.editExistingProperty(event, this.props.property)}>Edit</button>
+        <h3>Update Property</h3>
+        <select id="agentSelect" onChange={event => this.handleSelection(event)}>
+          <option value="">Select Agent:</option>
+          {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
+        </select>
         <div id="adminUpdatePropertyUpdateForm" className="admin-hide">
           <form onSubmit={event => this.handlePropertyUpdateSubmit(event)}>
             <p>
@@ -209,5 +215,5 @@ const mapDispatchToProps = dispatch => {
     updateProperty: property => dispatch(updateProperty(property))
   };
 };
- 
+
 export default connect(null, mapDispatchToProps)(PropertyUpdate);

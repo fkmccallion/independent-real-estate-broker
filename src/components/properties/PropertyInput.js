@@ -65,7 +65,6 @@ class PropertyInput extends Component {
       this.setState({
         agent_id: selectedAgent.id
       })
-
     } else {
       this.setState({
         address: "",
