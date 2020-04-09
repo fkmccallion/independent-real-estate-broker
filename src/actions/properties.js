@@ -5,10 +5,17 @@ export const addProperty = property => {
   };
 };
 
-export const deleteProperty = propertyId => {
+export const updateProperty = property => {
+  return {
+    type: 'UPDATE_PROPERTY',
+    property
+  };
+};
+
+export const deleteProperty = property => {
   return {
     type: 'DELETE_PROPERTY',
-    propertyId
+    property
   };
 };
 

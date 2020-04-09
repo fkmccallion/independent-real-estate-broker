@@ -28,6 +28,32 @@ export default (state = { properties: [], requesting: false}, action) => {
     fetch(PROPERTIES_URL, configObj);
   }
 
+  function updateProperty() {
+    let configObj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        'id': action.property.id,
+        'address': action.property.address,
+        'city': action.property.city,
+        'state': action.property.state,
+        'zip': action.property.zip,
+        'price': action.property.price,
+        'sold': action.property.sold,
+        'agent_id': action.property.agent_id,
+        'bed': action.property.bed,
+        'bath': action.property.bath,
+        'sqft': action.property.sqft,
+        'transaction_date': action.property.transaction_date,
+        'client': action.property.client
+      })
+    };
+    fetch(PROPERTIES_URL + `/${action.property.id}`, configObj);
+  }
+
   function deleteProperty() {
     let configObj = {
       method: "DELETE",
@@ -36,10 +62,10 @@ export default (state = { properties: [], requesting: false}, action) => {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        'id': action.propertyId.id
+        'id': action.property.id
       })
     };
-    fetch(PROPERTIES_URL + `/${action.propertyId.id}`, configObj);
+    fetch(PROPERTIES_URL + `/${action.property.id}`, configObj);
   }
 
   switch (action.type) {
@@ -57,6 +83,11 @@ export default (state = { properties: [], requesting: false}, action) => {
       }
     case 'ADD_PROPERTY':
       addProperty();
+      return {
+        ...state
+      }
+    case 'UPDATE_PROPERTY':
+      updateProperty();
       return {
         ...state
       }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProperty } from '../../actions/properties';
-import { storage } from '../../firebase';
 
 class PropertyInput extends Component {
 

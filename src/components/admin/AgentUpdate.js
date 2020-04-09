@@ -107,11 +107,6 @@ class AgentUpdate extends Component {
       });
   }
 
-  editProperty = (event, propertyId) => {
-    event.preventDefault();
-    console.log(propertyId)
-  }
-
   deleteProperty = (event, propertyId) => {
     event.preventDefault();
     this.props.deleteProperty({id: propertyId})
@@ -207,13 +202,14 @@ class AgentUpdate extends Component {
           <h4>Properties:</h4>
           <PropertyInput agentId={this.state.id} />
           {this.state.properties.map(property =>
-            <p>
+            <>
               {property.address}<br />
               {`${property.city}, ${property.state} ${property.zip}`}<br />
               {property.transaction_date ? property.transaction_date : null }<br />
-              <button onClick={event => this.editProperty(event, property.id)}>Edit</button>
-              <button onClick={event => this.deleteProperty(event, property.id)}>Delete</button>
-            </p>
+              <PropertyUpdate property={property} />
+              <button onClick={event => this.deleteProperty(event, property.id)}>Delete</button><br /><br />
+            </>
+
           )}
 
         </div>
