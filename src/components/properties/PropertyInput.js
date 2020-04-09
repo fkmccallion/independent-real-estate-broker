@@ -185,7 +185,6 @@ class PropertyInput extends Component {
         </div>
       </div>
 
-
     )
   }
 
