@@ -84,7 +84,9 @@ export default (state = { properties: [], requesting: false}, action) => {
     case 'ADD_PROPERTY':
       addProperty();
       return {
-        ...state
+        ...state,
+        properties: [...state.properties],
+        requesting: false
       }
     case 'UPDATE_PROPERTY':
       updateProperty();

@@ -17,7 +17,7 @@ export default (state = { agents: [], requesting: false}, action) => {
         'phone': action.agent.phone,
         'email': action.agent.email,
         'bre_number': action.agent.bre_number,
-        'img_url': action.agent.img_url
+        'img_url': action.agent.img_url ? action.agent.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=676a86b1-5bb6-4911-8834-694b23a6630c"
       })
     };
     fetch(AGENTS_URL, configObj);
@@ -74,7 +74,9 @@ export default (state = { agents: [], requesting: false}, action) => {
     case 'ADD_AGENT':
       addAgent();
       return {
-        ...state
+        ...state,
+        agents: [...state.agents],
+        requesting: false
       }
     case 'UPDATE_AGENT':
       updateAgent();

@@ -202,7 +202,7 @@ class AgentUpdate extends Component {
           <h4>Properties:</h4>
           <PropertyInput agentId={this.state.id} />
           {this.state.properties.map(property =>
-            <>  
+            <>
               {property.address}<br />
               {`${property.city}, ${property.state} ${property.zip}`}<br />
               {property.transaction_date ? property.transaction_date : null }<br />
