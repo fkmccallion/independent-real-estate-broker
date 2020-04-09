@@ -196,7 +196,7 @@ class PropertyUpdate extends Component {
             </p>
             <input type="submit" value="Submit Property Update" />
           </form>
-          <ImageInput />
+          <ImageInput property={this.state} />
         </div>
       </div>
     )
@@ -209,5 +209,5 @@ const mapDispatchToProps = dispatch => {
     updateProperty: property => dispatch(updateProperty(property))
   };
 };
-
+ 
 export default connect(null, mapDispatchToProps)(PropertyUpdate);

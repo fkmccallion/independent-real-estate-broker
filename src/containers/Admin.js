@@ -5,7 +5,10 @@ import { fetchProperties } from '../actions/properties';
 import '../admin.css';
 
 import AgentInput from '../components/agents/AgentInput';
+import PropertyInput from '../components/properties/PropertyInput';
+import ImageInput from '../components/images/ImageInput';
 import AgentUpdate from '../components/agents/AgentUpdate';
+import PropertyUpdate from '../components/properties/PropertyUpdate';
 import AgentDelete from '../components/agents/AgentDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -26,9 +29,12 @@ class Admin extends Component {
         <h1>Admin</h1>
         <Router>
           <NavbarAdmin />
-          <Route exact path="/admin/new" component={AgentInput} />
-          <Route exact path="/admin/update" render={(props) => <AgentUpdate agents={this.props.agents} properties={this.props.properties} />} />
-          <Route exact path="/admin/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
+          <Route exact path="/admin/agents/new" component={AgentInput} />
+          <Route exact path="/admin/properties/new" render={(props) => <PropertyInput agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/images/new" render={(props) => <ImageInput agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/agents/update" render={(props) => <AgentUpdate agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/properties/update" render={(props) => <PropertyUpdate agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/agents/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
         </Router>
 
       </div>

@@ -4,19 +4,22 @@ import { addProperty } from '../../actions/properties';
 
 class PropertyInput extends Component {
 
-  state = {
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    price: 0,
-    sold: false,
-    agent_id: 0,
-    bed: 0,
-    bath: 0,
-    sqft: 0,
-    transaction_date: "",
-    client: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      price: 0,
+      sold: false,
+      agent_id: 0,
+      bed: 0,
+      bath: 0,
+      sqft: 0,
+      transaction_date: "",
+      client: ""
+    }
   }
 
   addNewProperty = (event, agentId) => {
@@ -53,10 +56,43 @@ class PropertyInput extends Component {
     document.getElementById("adminAddPropertyUpdateForm").classList.add("admin-hide")
   };
 
+  handleSelection = event => {
+    if (event.target.value !== "")
+    {
+      document.getElementById("adminAddPropertyUpdateForm").classList.remove("admin-hide")
+      let selectedAgent = this.props.agents.find(agent => agent.id === parseInt(event.target.value, 10))
+      let selectedAgentProperties = this.props.properties.filter(property => property.agent_id === selectedAgent.id)
+      this.setState({
+        agent_id: selectedAgent.id
+      })
+
+    } else {
+      this.setState({
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+        price: 0,
+        sold: false,
+        agent_id: 0,
+        bed: 0,
+        bath: 0,
+        sqft: 0,
+        transaction_date: "",
+        client: ""
+      });
+      document.getElementById("adminAddPropertyUpdateForm").classList.add("admin-hide")
+    }
+  }
+
   render() {
     return(
       <div>
-        <button onClick={event => this.addNewProperty(event, this.props.agentId)}>Add New Property</button>
+        <h3>Add Property</h3>
+        <select id="agentSelect" onChange={event => this.handleSelection(event)}>
+          <option value="">Select Agent:</option>
+          {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
+        </select>
         <div id="adminAddPropertyUpdateForm" className="admin-hide">
           <form onSubmit={event => this.handlePropertySubmit(event)}>
             <p>

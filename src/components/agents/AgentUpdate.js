@@ -201,17 +201,6 @@ class AgentUpdate extends Component {
             </p>
             <input type="submit" value="Submit Agent Update" />
           </form>
-          <h4>Properties:</h4>
-          <PropertyInput agentId={this.state.id} />
-          {this.state.properties.map(property =>
-            <>
-              <Property property={property} />
-              <PropertyUpdate property={property} />
-              <button onClick={event => this.deleteProperty(event, property.id)}>Delete</button><br /><br />
-            </>
-
-          )}
-
         </div>
       </div>
     )
