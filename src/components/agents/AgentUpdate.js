@@ -6,6 +6,8 @@ import { storage } from '../../firebase';
 
 import PropertyInput from '../properties/PropertyInput';
 import PropertyUpdate from '../properties/PropertyUpdate';
+import Property from '../properties/Property';
+
 
 class AgentUpdate extends Component {
 
@@ -203,9 +205,7 @@ class AgentUpdate extends Component {
           <PropertyInput agentId={this.state.id} />
           {this.state.properties.map(property =>
             <>
-              {property.address}<br />
-              {`${property.city}, ${property.state} ${property.zip}`}<br />
-              {property.transaction_date ? property.transaction_date : null }<br />
+              <Property property={property} />
               <PropertyUpdate property={property} />
               <button onClick={event => this.deleteProperty(event, property.id)}>Delete</button><br /><br />
             </>

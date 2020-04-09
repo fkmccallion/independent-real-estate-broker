@@ -4,9 +4,9 @@ import { fetchAgents } from '../actions/agents';
 import { fetchProperties } from '../actions/properties';
 import '../admin.css';
 
-import AgentInput from '../components/admin/AgentInput';
-import AgentUpdate from '../components/admin/AgentUpdate';
-import AgentDelete from '../components/admin/AgentDelete';
+import AgentInput from '../components/agents/AgentInput';
+import AgentUpdate from '../components/agents/AgentUpdate';
+import AgentDelete from '../components/agents/AgentDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/admin/NavbarAdmin'
