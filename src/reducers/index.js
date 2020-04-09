@@ -4,5 +4,6 @@ import properties from './properties';
 
 export default combineReducers({
   agents,
-  properties
+  properties,
+  images
 });

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateProperty } from '../../actions/properties';
+import ImageInput from '../images/ImageInput';
 
 class PropertyUpdate extends Component {
 
@@ -195,6 +196,7 @@ class PropertyUpdate extends Component {
             </p>
             <input type="submit" value="Submit Property Update" />
           </form>
+          <ImageInput />
         </div>
       </div>
     )
