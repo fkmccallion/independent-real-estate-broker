@@ -32,11 +32,11 @@ class NavbarAdmin extends React.Component {
         <NavLink
           to="/admin/images/new"
           exact
-        >Add Property Image</NavLink>&nbsp;
+        >Add Image</NavLink>&nbsp;
         <NavLink
           to="/admin/images/delete"
           exact
-        >Delete Property Image</NavLink>
+        >Delete Image</NavLink>
       </div>
     )
   }
