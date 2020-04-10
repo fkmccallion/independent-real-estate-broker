@@ -253,7 +253,7 @@ class PropertyUpdate extends Component {
             <input type="submit" value="Submit Property Update" />
           </form>
         </div>
-        {this.state.properties.map(property => <p>{property.address}<button onClick={event => this.handleEditProperty(event, property)}>Edit Property</button></p>)}
+        {this.state.properties.map(property => <p>{property.address}<br /><button onClick={event => this.handleEditProperty(event, property)}>Edit Property</button></p>)}
       </div>
     )
   }

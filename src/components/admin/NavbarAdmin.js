@@ -10,25 +10,29 @@ class NavbarAdmin extends React.Component {
           exact
         >Add Agent</NavLink>&nbsp;
         <NavLink
-          to="/admin/properties/new"
-          exact
-        >Add Property</NavLink>&nbsp;
-        <NavLink
-          to="/admin/images/new"
-          exact
-        >Add Property Image</NavLink>&nbsp;
-        <NavLink
           to="/admin/agents/update"
           exact
         >Update Agent</NavLink>&nbsp;
+        <NavLink
+          to="/admin/agents/delete"
+          exact
+        >Delete Agent</NavLink>&nbsp;
+        <NavLink
+          to="/admin/properties/new"
+          exact
+        >Add Property</NavLink>&nbsp;
         <NavLink
           to="/admin/properties/update"
           exact
         >Update Property</NavLink>&nbsp;
         <NavLink
-          to="/admin/agents/delete"
+          to="/admin/properties/delete"
           exact
-        >Delete Agent</NavLink>
+        >Delete Property</NavLink>&nbsp;
+        <NavLink
+          to="/admin/images/new"
+          exact
+        >Add Property Image</NavLink>&nbsp;
       </div>
     )
   }
