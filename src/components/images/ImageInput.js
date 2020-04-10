@@ -13,7 +13,8 @@ class ImageInput extends Component {
       property_id: 0,
       image: null,
       address: "",
-      properties: []
+      properties: [],
+      images: []
     };
   }
 
@@ -124,8 +125,9 @@ class ImageInput extends Component {
             </p>
             <input type="submit" value="Submit Property Image" />
           </form>
+          <h5>{this.state.address} Images:</h5>
         </div>
-        {this.state.properties.map(property => <p>{property.address}<button onClick={event => this.handleAddImage(event, property)}>Add Image</button></p>)}
+        {this.state.properties.map(property => <p>{property.address}<br /><button onClick={event => this.handleAddImage(event, property)}>Add Image</button></p>)}
       </div>
     )
   }
