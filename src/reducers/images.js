@@ -33,7 +33,6 @@ export default (state = { images: [], requesting: false}, action) => {
         requesting: false
       }
     case 'ADD_IMAGE':
-    console.log(action)
       addImage();
       return {
         ...state

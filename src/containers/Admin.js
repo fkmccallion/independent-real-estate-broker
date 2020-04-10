@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAgents } from '../actions/agents';
 import { fetchProperties } from '../actions/properties';
+import { fetchImages } from '../actions/images';
 import '../admin.css';
 
 import AgentInput from '../components/agents/AgentInput';
@@ -21,6 +22,7 @@ class Admin extends Component {
 
       this.props.fetchAgents()
       this.props.fetchProperties()
+      this.props.fetchImages()
 
     }
 
@@ -32,7 +34,7 @@ class Admin extends Component {
           <NavbarAdmin />
           <Route exact path="/admin/agents/new" component={AgentInput} />
           <Route exact path="/admin/properties/new" render={(props) => <PropertyInput agents={this.props.agents} properties={this.props.properties} />} />
-          <Route exact path="/admin/images/new" render={(props) => <ImageInput agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/images/new" render={(props) => <ImageInput agents={this.props.agents} properties={this.props.properties} images={this.props.images} />} />
           <Route exact path="/admin/agents/update" render={(props) => <AgentUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/properties/update" render={(props) => <PropertyUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/agents/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
@@ -48,14 +50,16 @@ class Admin extends Component {
 const mapStateToProps = (state) => {
   return {
     agents: state.agents.agents,
-    properties: state.properties.properties
+    properties: state.properties.properties,
+    images: state.images.images
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchAgents: () => dispatch(fetchAgents()),
-    fetchProperties: () => dispatch(fetchProperties())
+    fetchProperties: () => dispatch(fetchProperties()),
+    fetchImages: () => dispatch(fetchImages())
   };
 };
 

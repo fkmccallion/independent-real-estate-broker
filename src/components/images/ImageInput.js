@@ -87,11 +87,17 @@ class ImageInput extends Component {
 
   handleAddImage = (event, property) => {
     event.preventDefault();
-    document.getElementById("adminAddPropertyImageForm").classList.remove("admin-hide")
+    let selectedPropertyImages = this.props.images.filter(image => image.property_id === property.id)
     this.setState({
+      images: selectedPropertyImages,
       property_id: property.id,
       address: property.address
     })
+    document.getElementById("adminAddPropertyImageForm").classList.remove("admin-hide")
+  }
+
+  imgButtonClick = event => {
+    console.log("click")
   }
 
   render() {
@@ -126,6 +132,7 @@ class ImageInput extends Component {
             <input type="submit" value="Submit Property Image" />
           </form>
           <h5>{this.state.address} Images:</h5>
+          {this.state.images.map(image => <img src={image.img_url} className="admin-thumbnail" />)}
         </div>
         {this.state.properties.map(property => <p>{property.address}<br /><button onClick={event => this.handleAddImage(event, property)}>Add Image</button></p>)}
       </div>
