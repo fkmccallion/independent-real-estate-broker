@@ -55,7 +55,6 @@ export default (state = { properties: [], requesting: false}, action) => {
   }
 
   function deleteProperty() {
-    console.log(action)
     let configObj = {
       method: "DELETE",
       headers: {

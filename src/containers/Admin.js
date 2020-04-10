@@ -12,6 +12,7 @@ import AgentUpdate from '../components/agents/AgentUpdate';
 import PropertyUpdate from '../components/properties/PropertyUpdate';
 import AgentDelete from '../components/agents/AgentDelete';
 import PropertyDelete from '../components/properties/PropertyDelete';
+import ImageDelete from '../components/images/ImageDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/admin/NavbarAdmin'
@@ -39,6 +40,7 @@ class Admin extends Component {
           <Route exact path="/admin/properties/update" render={(props) => <PropertyUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/agents/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
           <Route exact path="/admin/properties/delete" render={(props) => <PropertyDelete agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/images/delete" render={(props) => <ImageDelete agents={this.props.agents} properties={this.props.properties} images={this.props.images} />} />
         </Router>
 
       </div>

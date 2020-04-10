@@ -22,4 +22,10 @@ class ImagesController < ApplicationController
     render json: ImageSerializer.new(image).to_serialized_json
   end
 
+  def destroy
+    image = Image.find_by(id: params[:id])
+    image.delete
+    render json: ImageSerializer.new(image).to_serialized_json
+  end
+
 end

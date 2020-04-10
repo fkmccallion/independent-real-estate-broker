@@ -19,6 +19,20 @@ export default (state = { images: [], requesting: false}, action) => {
     fetch(IMAGES_URL, configObj);
   }
 
+  function deleteImage() {
+    let configObj = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        'id': action.image
+      })
+    };
+    fetch(IMAGES_URL + `/${action.image}`, configObj);
+  }
+
   switch (action.type) {
     case 'START_ADDING_IMAGES_REQUEST':
       return {
@@ -34,6 +48,11 @@ export default (state = { images: [], requesting: false}, action) => {
       }
     case 'ADD_IMAGE':
       addImage();
+      return {
+        ...state
+      }
+    case 'DELETE_IMAGE':
+      deleteImage();
       return {
         ...state
       }

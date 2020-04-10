@@ -5,6 +5,13 @@ export const addImage = image => {
   };
 };
 
+export const deleteImage = image => {
+  return {
+    type: 'DELETE_IMAGE',
+    image
+  };
+};
+
 export function fetchImages() {
   const BASE_URL = "http://localhost:3000"
   const IMAGES_URL = `${BASE_URL}/images`
