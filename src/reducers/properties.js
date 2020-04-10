@@ -55,6 +55,7 @@ export default (state = { properties: [], requesting: false}, action) => {
   }
 
   function deleteProperty() {
+    console.log(action)
     let configObj = {
       method: "DELETE",
       headers: {
@@ -62,10 +63,10 @@ export default (state = { properties: [], requesting: false}, action) => {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        'id': action.property.id
+        'id': action.property
       })
     };
-    fetch(PROPERTIES_URL + `/${action.property.id}`, configObj);
+    fetch(PROPERTIES_URL + `/${action.property}`, configObj);
   }
 
   switch (action.type) {
