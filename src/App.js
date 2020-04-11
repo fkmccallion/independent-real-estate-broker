@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import logo from './imgs/logo.png'
+import 'typeface-roboto';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -8,6 +8,8 @@ import Home from './containers/Home'
 import Admin from './containers/Admin';
 import Agents from './containers/Agents';
 import Properties from './containers/Properties';
+
+import logo from './imgs/logo.png'
 
 function App() {
   return (
