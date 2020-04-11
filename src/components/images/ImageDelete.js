@@ -39,7 +39,6 @@ class ImageDelete extends Component {
   }
 
   handleDeleteImage = (event, image) => {
-    event.preventDefault();
     this.props.deleteImage(image.id)
   }
 
@@ -70,7 +69,7 @@ class ImageDelete extends Component {
         {this.state.properties.map(property =>
           <p>
             {property.address} Images:<br />
-            {this.props.images.filter(image => image.property_id === property.id).map(image => <p><img src={image.img_url} className="admin-thumbnail" /><br /><button onClick={event => this.handleDeleteImage(event, image)}>Commit Delete</button></p>)}
+            {this.props.images.filter(image => image.property_id === property.id).map(image => <p><img src={image.img_url} alt={image.title} className="admin-thumbnail" /><br /><button onClick={event => this.handleDeleteImage(event, image)}>Commit Delete</button></p>)}
 
           </p>
         )}
