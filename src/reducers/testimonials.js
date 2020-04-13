@@ -61,4 +61,4 @@ export default (state = { testimonials: [], requesting: false}, action) => {
       return state;
   }
 
-} 
+}

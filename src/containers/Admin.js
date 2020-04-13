@@ -32,12 +32,10 @@ class Admin extends Component {
     }
 
   render() {
+
     return (
       <div>
-        {console.log(this.props.agents)}
-        {console.log(this.props.properties)}
-        {console.log(this.props.images)}
-        {console.log(this.props.testimonials)}
+
         <h1>Admin</h1>
         <Router>
           <NavbarAdmin />
@@ -64,7 +62,7 @@ const mapStateToProps = (state) => {
     agents: state.agents.agents,
     properties: state.properties.properties,
     images: state.images.images,
-    testimonials: state.testimonials.testimonials
+    testimonials: state.testimonials
   };
 };
 

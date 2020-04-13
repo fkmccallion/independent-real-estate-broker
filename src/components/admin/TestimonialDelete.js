@@ -59,7 +59,7 @@ class TestimonialDelete extends Component {
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
         <div id="submitPane" className="admin-hide">
-          <h4>Selected Property: {this.state.selected_property.address}</h4>
+          <h4>Selected Testimonial: {this.state.selected_testimonial.comment}</h4>
           <form onSubmit={event => this.handleSubmit(event)}>
             <input type="submit" value="Confirm Delete" />
           </form>
