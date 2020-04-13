@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { fetchAgents } from '../actions/agents';
 
 import Agent from '../components/agents/Agent';
-import NavbarAgents from '../components/agents/NavbarAgents';
+
 
 import '../agents.css';
+
+import { connect } from 'react-redux';
+
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import NavbarAgents from '../components/agents/NavbarAgents';
+// <Router>
+//   <NavbarAgents agents={this.props.agents} />
+//   <Route exact path={`${this.props.match.url}/:agentId`} render={routerProps => <Agent {...routerProps} agents={this.props.agents} />}/>
+// </Router>
+
 
 class Agents extends Component {
 
@@ -18,10 +26,7 @@ class Agents extends Component {
   render() {
     return(
       <div>
-        <Router>
-          <NavbarAgents agents={this.props.agents} />
-          <Route exact path={`${this.props.match.url}/:agentId`} render={routerProps => <Agent {...routerProps} agents={this.props.agents} />}/>
-        </Router>
+        {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
   }
