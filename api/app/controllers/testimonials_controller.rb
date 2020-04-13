@@ -11,14 +11,14 @@ class TestimonialsController < ApplicationController
   end
 
   def create
-    Property.create(comment: params[:comment], source: params[:source], client: params[:client], agent_id: params[:agent_id], property_id: params[:property_id])
+    Testimonial.create(comment: params[:comment], source: params[:source], client: params[:client], agent_id: params[:agent_id])
     testimonials = Testimonial.all
     render json: TestimonialSerializer.new(testimonials).to_serialized_json
   end
 
   def update
     testimonial = Testimonial.find_by(id: params[:id])
-    testimonial.update(comment: params[:comment], source: params[:source], client: params[:client], agent_id: params[:agent_id], property_id: params[:property_id])
+    testimonial.update(comment: params[:comment], source: params[:source], client: params[:client], agent_id: params[:agent_id])
     render json: TestimonialSerializer.new(testimonial).to_serialized_json
   end
 

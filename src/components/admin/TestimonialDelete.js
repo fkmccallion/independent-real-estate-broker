@@ -31,7 +31,7 @@ class TestimonialDelete extends Component {
   confirmSubmitPane = (event, testimonial) => {
     document.getElementById("submitPane").classList.remove("admin-hide")
     this.setState({
-      selected_property: property
+      selected_testimonial: testimonial
     });
   }
 
