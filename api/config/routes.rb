@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testimonials
   resources :open_houses
   resources :images
   resources :property_images
