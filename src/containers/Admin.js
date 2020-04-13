@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
     agents: state.agents.agents,
     properties: state.properties.properties,
     images: state.images.images,
-    testimonials: state.testimonials
+    testimonials: state.testimonials.testimonials
   };
 };
 

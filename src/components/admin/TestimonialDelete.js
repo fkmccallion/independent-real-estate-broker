@@ -38,7 +38,7 @@ class TestimonialDelete extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.selected_property !== {}) {
-      this.props.deleteTestimonial(this.state.selected_property.id)
+      this.props.deleteTestimonial(this.state.selected_testimonial.id)
     }
     this.setState({
       agent_id: 0,
