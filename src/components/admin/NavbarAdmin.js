@@ -36,11 +36,11 @@ class NavbarAdmin extends React.Component {
         <NavLink
           to="/admin/images/delete"
           exact
-        >Delete Image</NavLink>
+        >Delete Image</NavLink>&nbsp;
         <NavLink
           to="/admin/testimonials/new"
           exact
-        >Add Testimonial</NavLink>
+        >Add Testimonial</NavLink>&nbsp;
         <NavLink
           to="/admin/testimonials/delete"
           exact

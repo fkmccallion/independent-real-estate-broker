@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchAgents } from '../actions/agents';
 import { fetchProperties } from '../actions/properties';
 import { fetchImages } from '../actions/images';
+import { fetchTestimonials } from '../actions/testimonials';
 import '../admin.css';
 
 import AgentInput from '../components/admin/AgentInput';
@@ -13,6 +14,8 @@ import PropertyUpdate from '../components/admin/PropertyUpdate';
 import AgentDelete from '../components/admin/AgentDelete';
 import PropertyDelete from '../components/admin/PropertyDelete';
 import ImageDelete from '../components/admin/ImageDelete';
+import TestimonialInput from '../components/admin/TestimonialInput';
+import TestimonialDelete from '../components/admin/TestimonialDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/admin/NavbarAdmin'
@@ -24,6 +27,7 @@ class Admin extends Component {
       this.props.fetchAgents()
       this.props.fetchProperties()
       this.props.fetchImages()
+      this.props.fetchTestimonials()
 
     }
 
@@ -41,6 +45,8 @@ class Admin extends Component {
           <Route exact path="/admin/agents/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
           <Route exact path="/admin/properties/delete" render={(props) => <PropertyDelete agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/images/delete" render={(props) => <ImageDelete agents={this.props.agents} properties={this.props.properties} images={this.props.images} />} />
+          <Route exact path="/admin/testimonials/new" render={(props) => <TestimonialInput agents={this.props.agents} testimonials={this.props.testimonials} />} />
+          <Route exact path="/admin/testimonials/delete" render={(props) => <TestimonialDelete agents={this.props.agents}  testimonials={this.props.testimonials} />} />
         </Router>
 
       </div>
@@ -53,7 +59,8 @@ const mapStateToProps = (state) => {
   return {
     agents: state.agents.agents,
     properties: state.properties.properties,
-    images: state.images.images
+    images: state.images.images,
+    testimonials: state.testimonials.testimonials
   };
 };
 
@@ -61,7 +68,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchAgents: () => dispatch(fetchAgents()),
     fetchProperties: () => dispatch(fetchProperties()),
-    fetchImages: () => dispatch(fetchImages())
+    fetchImages: () => dispatch(fetchImages()),
+    fetchTestimonials: () => dispatch(fetchTestimonials())
   };
 };
 
