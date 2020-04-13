@@ -5,14 +5,14 @@ import { fetchProperties } from '../actions/properties';
 import { fetchImages } from '../actions/images';
 import '../admin.css';
 
-import AgentInput from '../components/agents/AgentInput';
-import PropertyInput from '../components/properties/PropertyInput';
-import ImageInput from '../components/images/ImageInput';
-import AgentUpdate from '../components/agents/AgentUpdate';
-import PropertyUpdate from '../components/properties/PropertyUpdate';
-import AgentDelete from '../components/agents/AgentDelete';
-import PropertyDelete from '../components/properties/PropertyDelete';
-import ImageDelete from '../components/images/ImageDelete';
+import AgentInput from '../components/admin/AgentInput';
+import PropertyInput from '../components/admin/PropertyInput';
+import ImageInput from '../components/admin/ImageInput';
+import AgentUpdate from '../components/admin/AgentUpdate';
+import PropertyUpdate from '../components/admin/PropertyUpdate';
+import AgentDelete from '../components/admin/AgentDelete';
+import PropertyDelete from '../components/admin/PropertyDelete';
+import ImageDelete from '../components/admin/ImageDelete';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavbarAdmin from '../components/admin/NavbarAdmin'
