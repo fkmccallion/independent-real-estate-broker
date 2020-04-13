@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_172337) do
+ActiveRecord::Schema.define(version: 2020_04_13_175512) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -80,6 +80,16 @@ ActiveRecord::Schema.define(version: 2020_04_13_172337) do
     t.date "transaction_date"
     t.string "client"
     t.index ["agent_id"], name: "index_properties_on_agent_id"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.text "comment"
+    t.string "source"
+    t.string "client"
+    t.integer "agent_id"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
