@@ -1,3 +1,25 @@
+.agent-card {
+  margin: auto;
+  width: 600px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
 .agent-image {
   height: 150px;
+}
+
+.agent-bio {
+  padding: 15px 0px 15px 0px
+}
+
+.agent-contact-info {
+  float: right;
+  padding-right: 150px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.agent-contact-info b {
+  font-size: large;
 }

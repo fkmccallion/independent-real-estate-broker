@@ -20,7 +20,7 @@ function App() {
       <header>
         <img src={logo} alt="logo" height="100" />
       </header>
-      <div className="App">
+      <div>
         <Router>
           <Navbar />
           <Switch>
