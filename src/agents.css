@@ -18,8 +18,14 @@
   padding-right: 150px;
   padding-top: 15px;
   text-align: center;
+
 }
 
 .agent-contact-info b {
   font-size: large;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }

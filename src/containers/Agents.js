@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { fetchAgents } from '../actions/agents';
 
 import Agent from '../components/agents/Agent';
 
-
 import '../agents.css';
 
-import { connect } from 'react-redux';
 
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import NavbarAgents from '../components/agents/NavbarAgents';
+
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
+//import NavbarAgents from '../components/agents/NavbarAgents';
 // <Router>
 //   <NavbarAgents agents={this.props.agents} />
 //   <Route exact path={`${this.props.match.url}/:agentId`} render={routerProps => <Agent {...routerProps} agents={this.props.agents} />}/>
@@ -26,7 +26,7 @@ class Agents extends Component {
   render() {
     return(
       <div>
-        {this.props.agents.map(agent => <Agent agent={agent} />)}
+        {this.props.agents.map(agent => <a href="#"><Agent agent={agent} /></a>)}
       </div>
     )
   }

@@ -1,5 +1,4 @@
 import React from 'react'
-import '../../agents.css';
 
 const Agent = agent => {
   return (
