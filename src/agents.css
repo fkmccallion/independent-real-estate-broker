@@ -9,6 +9,8 @@
   height: 150px;
 }
 
+
+
 .agent-bio {
   padding: 15px 0px 15px 0px
 }
@@ -18,11 +20,12 @@
   padding-right: 150px;
   padding-top: 15px;
   text-align: center;
+  font-size: large;
 
 }
 
 .agent-contact-info b {
-  font-size: large;
+  font-size: x-large;
 }
 
 a {
