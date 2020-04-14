@@ -4,23 +4,19 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends React.Component {
   render() {
     return (
-      <div>
-        <NavLink
+      <div className="app-navbar">
+        <NavLink className="app-navlink"
           to="/"
           exact
         >Home</NavLink>
-        <NavLink
+        <NavLink className="app-navlink"
           to="/agents"
           exact
         >Agents</NavLink>
-        <NavLink
+        <NavLink className="app-navlink"
           to="/properties"
           exact
         >Properties</NavLink>
-        <NavLink
-          to="/admin"
-          exact
-        >Admin</NavLink>
       </div>
     )
   }

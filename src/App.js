@@ -12,13 +12,13 @@ import Admin from './containers/Admin';
 import Agents from './containers/Agents';
 import Properties from './containers/Properties';
 
-import logo from './imgs/logo.png'
+import logo from './imgs/logo-medium.gif'
 
 function App() {
   return (
-    <div id="container">
+    <div className="App">
       <header>
-        <img src={logo} alt="logo" height="100" />
+        <img id="app-logo" src={logo} alt="logo" height="100" />
       </header>
       <div>
         <Router>

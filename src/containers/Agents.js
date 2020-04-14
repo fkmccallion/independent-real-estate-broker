@@ -9,6 +9,7 @@ import '../agents.css';
 
 
 
+
 //import { BrowserRouter as Router, Route } from 'react-router-dom';
 //import NavbarAgents from '../components/agents/NavbarAgents';
 // <Router>
@@ -26,7 +27,7 @@ class Agents extends Component {
   render() {
     return(
       <div>
-        {this.props.agents.map(agent => <a href="#"><Agent agent={agent} /></a>)}
+        {this.props.agents.map(agent => <Agent agent={agent} />)}
       </div>
     )
   }

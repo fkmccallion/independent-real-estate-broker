@@ -12,6 +12,7 @@ class Properties extends Component {
 
   }
 
+
   render() {
 
     return (
