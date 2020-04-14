@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img id="app-logo" src={logo} alt="logo" height="100" />
+        <img id="app-logo" src={logo} alt="logo" height="150" />
       </header>
       <div>
         <Router>
