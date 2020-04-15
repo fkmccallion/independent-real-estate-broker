@@ -20,16 +20,28 @@ class Properties extends Component {
 
   }
 
+  hideNav = () => {
+    const nav = document.getElementById('properties-nav')
+    const display = document.getElementById('properties-display')
+    nav.classList.add('properties-hide')
+    display.classList.remove('properties-hide')
+  }
+
+  unhideNav = () => {
+    const nav = document.getElementById('properties-nav')
+    const display = document.getElementById('properties-display')
+    nav.classList.remove('properties-hide')
+    display.classList.add('properties-hide')
+  }
 
 
   render() {
 
     return (
       <div>
-        <h1>Properties</h1>
         <Router>
-          <PropertiesList properties={this.props.properties} images={this.props.images} />
-          <Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} />}/>
+          <div id="properties-nav"><PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} /></div>
+          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} unhideNav={this.unhideNav} />}/></div>
         </Router>
       </div>
     )

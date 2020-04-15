@@ -9,23 +9,38 @@ class PropertiesList extends React.Component {
   }
 
   render() {
-
-    let renderProperties = Object.keys(this.props.properties).map(propertyId =>
-      <Link key={parseInt(propertyId, 10) + 1} to={`/properties/${parseInt(propertyId, 10) + 1}`}>
-        {console.log(this.propertyImage(parseInt(propertyId, 10) + 1))}
-        <img src={this.propertyImage(propertyId)} />
-        <div className="properties-address"><b>{this.props.properties[propertyId].address}</b></div>
-        {this.props.properties[propertyId].city}, {this.props.properties[propertyId].state}<br />
-        Bedrooms: {this.props.properties[propertyId].bed} -
-        Bathrooms: {this.props.properties[propertyId].bath}<br />
-        Price: {this.props.properties[propertyId].price}<br />
-      </Link>
+    const renderSoldProperties = Object.keys(this.props.properties.filter(property => property.sold === true)).map(propertyId =>
+      <p>
+        <Link key={parseInt(propertyId, 10) + 1} onClick={this.props.hideNav} to={`/properties/${parseInt(propertyId, 10) + 1}`}>
+          <img alt={this.props.properties[propertyId].title} src={this.propertyImage(propertyId)} width="400" height="300" /><br />
+          <span className="properties-address"><b>{this.props.properties[propertyId].address}</b></span><br />
+          {this.props.properties[propertyId].city}, {this.props.properties[propertyId].state}<br />
+          Bedrooms: {this.props.properties[propertyId].bed} -
+          Bathrooms: {this.props.properties[propertyId].bath}<br />
+          Price: {this.props.properties[propertyId].price}<br />
+        </Link>
+      </p>
     )
-
+    const renderAvailableProperties = this.props.properties.filter(property => property.sold === false).map(property =>
+      <p>
+        <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
+          <img alt={property.title} src={this.propertyImage(property.id)} width="400" height="300" /><br />
+          <span className="properties-address"><b>{property.address}</b></span><br />
+          {property.city}, {property.state}<br />
+          Bedrooms: {property.bed} -
+          Bathrooms: {property.bath}<br />
+          Price: {property.price}<br />
+        </Link>
+      </p>
+    )
 
     return (
       <div>
-        {renderProperties}
+        {(renderAvailableProperties.length > 0) ? <div className="properties-header">New Listing</div> : <div className="properties-hide">New Listing</div>}
+        {renderAvailableProperties}
+
+        <div className="properties-header">Properties Sold</div>
+        {renderSoldProperties}
       </div>
     )
   }

@@ -2,6 +2,22 @@
   font-size: x-large;
 }
 
-img {
-  width: 400px;
+.properties-hide {
+  display: none;
+}
+
+.properties-image {
+  height: 300px;
+}
+
+.properties-details {
+  font-size: large;
+}
+
+.properties-header {
+  background: rgba(255, 165, 0, 0.2);
+  font-size: xx-large;
+  padding: 15px 0px 15px 0px;
+  font-weight: bold;
+
 }
