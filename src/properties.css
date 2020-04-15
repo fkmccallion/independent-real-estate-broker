@@ -19,5 +19,33 @@
   font-size: xx-large;
   padding: 15px 0px 15px 0px;
   font-weight: bold;
+}
 
+.properties-overlay-container {
+  position: relative;
+
+}
+
+.properties-overlay-image {
+
+}
+
+.properties-overlay-text {
+  position: absolute;
+  width: 100%;
+  top: 130px;
+  left: 0px;
+  font-weight: bolder;
+  font-size: xx-large;
+  transform: rotate(-40deg);
+  -moz-transform:rotate(-40deg);
+  -webkit-transform:rotate(-40deg);
+  -o-transform:rotate(-40deg);
+  -ms-transform:rotate(-40deg);
+}
+
+.properties-overlay-text span {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px 125px 15px 125px;
+  color: white;
 }

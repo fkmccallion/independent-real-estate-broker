@@ -10,16 +10,19 @@ class PropertiesList extends React.Component {
 
   render() {
     const renderSoldProperties = Object.keys(this.props.properties.filter(property => property.sold === true)).map(propertyId =>
-      <p>
+
         <Link key={parseInt(propertyId, 10) + 1} onClick={this.props.hideNav} to={`/properties/${parseInt(propertyId, 10) + 1}`}>
-          <img alt={this.props.properties[propertyId].title} src={this.propertyImage(propertyId)} width="400" height="300" /><br />
+          <div className="properties-overlay-container">
+            <img className="properties-overlay-image" alt={this.props.properties[propertyId].title} src={this.propertyImage(propertyId)} width="400" height="300" />
+            <span className="properties-overlay-text"><span>SOLD</span></span>
+          </div>
           <span className="properties-address"><b>{this.props.properties[propertyId].address}</b></span><br />
           {this.props.properties[propertyId].city}, {this.props.properties[propertyId].state}<br />
           Bedrooms: {this.props.properties[propertyId].bed} -
           Bathrooms: {this.props.properties[propertyId].bath}<br />
           Price: {this.props.properties[propertyId].price}<br />
         </Link>
-      </p>
+
     )
     const renderAvailableProperties = this.props.properties.filter(property => property.sold === false).map(property =>
       <p>
@@ -36,7 +39,7 @@ class PropertiesList extends React.Component {
 
     return (
       <div>
-        {(renderAvailableProperties.length > 0) ? <div className="properties-header">New Listing</div> : <div className="properties-hide">New Listing</div>}
+        {(renderAvailableProperties.length > 0) ? <div className="properties-header">Featured Properties</div> : <div className="properties-hide">Featured Properties</div>}
         {renderAvailableProperties}
 
         <div className="properties-header">Properties Sold</div>

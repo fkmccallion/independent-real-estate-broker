@@ -20,7 +20,7 @@ const Property = ({match, properties, agents, images, unhideNav}) => {
         </p>
       <p>
         {images.filter(image => image.property_id === properties[match.params.propertyId - 1].id).map(image =>
-          <img alt={image.title} src={image.img_url} width="600" />
+          <img alt={image.title} src={image.img_url} width="50%" />
         )}
       </p>
 
