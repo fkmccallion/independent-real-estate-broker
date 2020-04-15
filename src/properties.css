@@ -37,15 +37,15 @@
   left: 0px;
   font-weight: bolder;
   font-size: xx-large;
-  transform: rotate(-40deg);
-  -moz-transform:rotate(-40deg);
-  -webkit-transform:rotate(-40deg);
-  -o-transform:rotate(-40deg);
-  -ms-transform:rotate(-40deg);
+  transform: rotate(-36deg);
+  -moz-transform:rotate(-36deg);
+  -webkit-transform:rotate(-36deg);
+  -o-transform:rotate(-36deg);
+  -ms-transform:rotate(-36deg);
 }
 
 .properties-overlay-text span {
   background: rgba(0, 0, 0, 0.5);
-  padding: 15px 125px 15px 125px;
+  padding: 0px 175px 0px 175px;
   color: white;
 }
