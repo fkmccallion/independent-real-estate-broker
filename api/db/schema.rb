@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_194604) do
+ActiveRecord::Schema.define(version: 2020_04_16_181356) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_194604) do
     t.integer "sqft"
     t.date "transaction_date"
     t.string "client"
+    t.text "description"
     t.index ["agent_id"], name: "index_properties_on_agent_id"
   end
 

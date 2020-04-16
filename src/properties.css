@@ -1,4 +1,4 @@
-.properties-address {
+.properties-header-text {
   font-size: xx-large;
   font-weight: bold;
 }
@@ -15,8 +15,8 @@
   height: 300px;
 }
 
-.properties-details {
-  font-size: large;
+.property-image {
+  vertical-align:top;
 }
 
 .properties-spacing {
@@ -25,9 +25,7 @@
 
 .properties-header {
   background: rgba(255, 165, 0, 0.2);
-  font-size: xx-large;
   padding: 15px 0px 15px 0px;
-  font-weight: bold;
 }
 
 .properties-overlay-container {

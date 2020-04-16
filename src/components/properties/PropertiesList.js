@@ -8,14 +8,6 @@ class PropertiesList extends React.Component {
     return image ? image.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fadd-image.png?alt=media&token=9bff3966-8370-4214-8cdb-7f540cc65984"
   }
 
-  reduceFunction = (availableProperties, soldProperties) => {
-    console.log(soldProperties)
-    console.log(availableProperties)
-    console.log(soldProperties.concat(availableProperties))
-    return soldProperties.concat(availableProperties)
-
-  }
-
   render() {
     const renderSoldProperties = this.props.properties.filter(property => property.sold === true).map(property =>
       <div className="properties-spacing">
@@ -24,7 +16,7 @@ class PropertiesList extends React.Component {
             <img alt={property.title} src={this.propertyImage(property)} width="400" height="300" />
             <span className="properties-overlay-text"><span>SOLD</span></span>
           </div>
-          <span className="properties-address">{property.address}</span><br />
+          <span className="properties-header-text">{property.address}</span><br />
           <span className="properties-details">
             {property.city}, {property.state}<br />
             Bedrooms: {property.bed} -
@@ -40,7 +32,7 @@ class PropertiesList extends React.Component {
           <div>
             <img alt={property.title} src={this.propertyImage(property)} width="400" height="300" />
           </div>
-          <span className="properties-address">{property.address}</span><br />
+          <span className="properties-header-text">{property.address}</span><br />
           <span className="properties-details">
             {property.city}, {property.state}<br />
             Bedrooms: {property.bed} -
@@ -54,10 +46,10 @@ class PropertiesList extends React.Component {
     return (
       <div>
 
-        {(renderAvailableProperties.length > 0) ? <div className="properties-header">Featured Properties</div> : <div className="properties-hide">Featured Properties</div>}
+        {(renderAvailableProperties.length > 0) ? <div className="properties-header properties-header-text">Featured Properties</div> : <div className="properties-hide">Featured Properties</div>}
         {renderAvailableProperties}
 
-        <div className="properties-header">Properties Sold</div>
+        <div className="properties-header properties-header-text">Properties Sold</div>
         {renderSoldProperties}
       </div>
     )

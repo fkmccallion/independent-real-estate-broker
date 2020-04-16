@@ -3,26 +3,24 @@ import Agent from '../agents/Agent';
 
 const Property = ({match, properties, agents, images, unhideNav, propertyArrayIndex}) => {
 
-  // stateless component due to project requirements - update at a later date
+  // stateless component due to project requirements
 
   return (
     <div>
-      <p>
-        <button onClick={unhideNav}>Back</button>
-      </p>
-      <h2>{properties[propertyArrayIndex(match.params.propertyId)].address}</h2>
+      <div className="properties-header properties-header-text">{properties[propertyArrayIndex(match.params.propertyId)].address}</div>
         <p className="properties-details">
-          <b>{properties[propertyArrayIndex(match.params.propertyId)].city} {properties[propertyArrayIndex(match.params.propertyId)].state}</b><br />
-          Bedrooms: {properties[propertyArrayIndex(match.params.propertyId)].bed}<br />
-          Bathrooms: {properties[propertyArrayIndex(match.params.propertyId)].bath}<br />
-          Living Area: {properties[propertyArrayIndex(match.params.propertyId)].sqft}<br />
-          Price: {properties[propertyArrayIndex(match.params.propertyId)].price}<br />
+          {properties[propertyArrayIndex(match.params.propertyId)].city} {properties[propertyArrayIndex(match.params.propertyId)].state}<br />
+          Bedrooms: {properties[propertyArrayIndex(match.params.propertyId)].bed}&nbsp;&nbsp; |
+          &nbsp;&nbsp;Bathrooms: {properties[propertyArrayIndex(match.params.propertyId)].bath}&nbsp;&nbsp; |
+          &nbsp;&nbsp;Living Area: {properties[propertyArrayIndex(match.params.propertyId)].sqft} ft<sup>2</sup>&nbsp;&nbsp; |
+          &nbsp;&nbsp;Price: {properties[propertyArrayIndex(match.params.propertyId)].price}
         </p>
       <p>
         {images.filter(image => image.property_id === properties[propertyArrayIndex(match.params.propertyId)].id).map(image =>
-          <img alt={image.title} src={image.img_url} width="50%" />
+          <img alt={image.title} src={image.img_url} width="40%" />
         )}
       </p>
+      <span className="properties-header-text">Listing Agent Representing {properties[propertyArrayIndex(match.params.propertyId)].client}</span>
       <Agent agent={agents.find(agent => agent.id === properties[propertyArrayIndex(match.params.propertyId)].agent_id)} />
 
     </div>
