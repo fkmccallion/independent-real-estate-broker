@@ -15,6 +15,13 @@
   height: 300px;
 }
 
+.properties-description {
+  width: 80%;
+  margin: auto;
+  padding-bottom: 25px;
+  font-size: large;
+}
+
 .property-image {
   vertical-align:top;
 }
@@ -26,6 +33,7 @@
 .properties-header {
   background: rgba(255, 165, 0, 0.2);
   padding: 15px 0px 15px 0px;
+  margin-top: 25px;
 }
 
 .properties-overlay-container {

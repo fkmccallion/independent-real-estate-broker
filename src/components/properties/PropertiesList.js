@@ -21,7 +21,7 @@ class PropertiesList extends React.Component {
             {property.city}, {property.state}<br />
             Bedrooms: {property.bed} -
             Bathrooms: {property.bath}<br />
-            Price: {property.price}<br />
+            Price: ${property.price}
           </span>
         </Link>
       </div>
@@ -37,7 +37,7 @@ class PropertiesList extends React.Component {
             {property.city}, {property.state}<br />
             Bedrooms: {property.bed} -
             Bathrooms: {property.bath}<br />
-            Price: {property.price}<br />
+            Price: ${property.price}<br />
           </span>
         </Link>
       </div>

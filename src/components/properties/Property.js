@@ -13,14 +13,15 @@ const Property = ({match, properties, agents, images, unhideNav, propertyArrayIn
           Bedrooms: {properties[propertyArrayIndex(match.params.propertyId)].bed}&nbsp;&nbsp; |
           &nbsp;&nbsp;Bathrooms: {properties[propertyArrayIndex(match.params.propertyId)].bath}&nbsp;&nbsp; |
           &nbsp;&nbsp;Living Area: {properties[propertyArrayIndex(match.params.propertyId)].sqft} ft<sup>2</sup>&nbsp;&nbsp; |
-          &nbsp;&nbsp;Price: {properties[propertyArrayIndex(match.params.propertyId)].price}
+          &nbsp;&nbsp;Price: ${properties[propertyArrayIndex(match.params.propertyId)].price}
         </p>
       <p>
         {images.filter(image => image.property_id === properties[propertyArrayIndex(match.params.propertyId)].id).map(image =>
           <img alt={image.title} src={image.img_url} width="40%" />
         )}
       </p>
-      <span className="properties-header-text">Listing Agent Representing {properties[propertyArrayIndex(match.params.propertyId)].client}</span>
+      <div className="properties-description">{properties[propertyArrayIndex(match.params.propertyId)].description}</div>
+      <span className="properties-header-text">Listing Agent Representing {properties[propertyArrayIndex(match.params.propertyId)].client}:</span>
       <Agent agent={agents.find(agent => agent.id === properties[propertyArrayIndex(match.params.propertyId)].agent_id)} />
 
     </div>
