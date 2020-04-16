@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteProperty } from '../../actions/properties';
+import { deleteImage } from '../../actions/images';
 
 class PropertyDelete extends Component {
 
@@ -39,6 +40,8 @@ class PropertyDelete extends Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.selected_property !== {}) {
+      let images = this.props.images.filter(image => image.property_id === this.state.selected_property.id)
+      images.map(image => this.props.deleteImage(image.id))
       this.props.deleteProperty(this.state.selected_property.id)
     }
     this.setState({
@@ -78,7 +81,8 @@ class PropertyDelete extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteProperty: property_id => dispatch(deleteProperty(property_id))
+    deleteProperty: property_id => dispatch(deleteProperty(property_id)),
+    deleteImage: image_id => dispatch(deleteImage(image_id))
   };
 };
 

@@ -20,6 +20,10 @@ class Properties extends Component {
 
   }
 
+  propertyArrayIndex = (propertyId) => {
+    for (var i = 0; i < this.props.properties.length; i++) { if (this.props.properties[i].id === parseInt(propertyId, 10)) { return i; } }
+  }
+
   hideNav = () => {
     const nav = document.getElementById('properties-nav')
     const display = document.getElementById('properties-display')
@@ -41,7 +45,7 @@ class Properties extends Component {
       <div>
         <Router>
           <div id="properties-nav"><PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} /></div>
-          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} unhideNav={this.unhideNav} />}/></div>
+          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} unhideNav={this.unhideNav} propertyArrayIndex={this.propertyArrayIndex} />}/></div>
         </Router>
       </div>
     )

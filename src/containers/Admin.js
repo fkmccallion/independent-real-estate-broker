@@ -45,7 +45,7 @@ class Admin extends Component {
           <Route exact path="/admin/agents/update" render={(props) => <AgentUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/properties/update" render={(props) => <PropertyUpdate agents={this.props.agents} properties={this.props.properties} />} />
           <Route exact path="/admin/agents/delete" render={(props) => <AgentDelete agents={this.props.agents} />} />
-          <Route exact path="/admin/properties/delete" render={(props) => <PropertyDelete agents={this.props.agents} properties={this.props.properties} />} />
+          <Route exact path="/admin/properties/delete" render={(props) => <PropertyDelete agents={this.props.agents} properties={this.props.properties} images={this.props.images} />} />
           <Route exact path="/admin/images/delete" render={(props) => <ImageDelete agents={this.props.agents} properties={this.props.properties} images={this.props.images} />} />
           <Route exact path="/admin/testimonials/new" render={(props) => <TestimonialInput agents={this.props.agents} testimonials={this.props.testimonials} />} />
           <Route exact path="/admin/testimonials/delete" render={(props) => <TestimonialDelete agents={this.props.agents}  testimonials={this.props.testimonials} />} />
