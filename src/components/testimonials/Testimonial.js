@@ -6,7 +6,7 @@ const Testimonial = testimonial => {
     <div className="testimonial-card">
       {testimonial.testimonial.comment}
       <br />
-      <div><b>{testimonial.testimonial.client} on {testimonial.testimonial.source}</b></div>
+      <div><b>~{testimonial.testimonial.client} on {testimonial.testimonial.source}</b></div>
     </div>
   )
 

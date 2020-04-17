@@ -9,7 +9,8 @@ class PropertiesList extends React.Component {
   }
 
   render() {
-    const renderSoldProperties = this.props.properties.filter(property => property.sold === true).map(property =>
+    // filter sold properties then sort by transaction date
+    const renderSoldProperties = this.props.properties.filter(property => property.sold === true).sort((b,a) => (a.transaction_date > b.transaction_date) ? 1 : ((b.transaction_date > a.transaction_date) ? -1 : 0)).map(property =>
       <div className="properties-spacing">
         <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
           <div className="properties-overlay-container">
@@ -45,7 +46,6 @@ class PropertiesList extends React.Component {
 
     return (
       <div>
-
         {(renderAvailableProperties.length > 0) ? <div className="properties-header properties-header-text">Featured Properties</div> : <div className="properties-hide">Featured Properties</div>}
         {renderAvailableProperties}
 

@@ -1,15 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-
-
 class Navbar extends React.Component {
 
   // select element in Properties container and toggle nav and display on/of
   showNav = ()=> {
     const nav = document.getElementById('properties-nav')
     const display = document.getElementById('properties-display')
-    if (nav.className) {
+    if (nav) {
       nav.classList.remove('properties-hide')
       display.classList.add('properties-hide')
     }
