@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { fetchTestimonials } from '../actions/testimonials';
 import Testimonial from '../components/testimonials/Testimonial';
+
+import '../testimonials.css';
 
 class Testimonials extends Component {
 
@@ -15,7 +16,7 @@ class Testimonials extends Component {
 
     return (
       <div>
-        <Testimonials testimonials={this.props.testimonials} />
+        {this.props.testimonials.map(testimonial => <Testimonial testimonial={testimonial} />)}
       </div>
     )
 

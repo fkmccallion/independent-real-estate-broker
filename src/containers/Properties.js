@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { fetchProperties } from '../actions/properties';
 import { fetchAgents } from '../actions/agents';
 import { fetchImages } from '../actions/images';
+import { fetchTestimonials } from '../actions/testimonials';
 import Property from '../components/properties/Property';
 import PropertiesList from '../components/properties/PropertiesList';
 
 import '../properties.css';
+import '../testimonials.css';
 
 class Properties extends Component {
 
@@ -17,6 +19,7 @@ class Properties extends Component {
     this.props.fetchProperties()
     this.props.fetchAgents()
     this.props.fetchImages()
+    this.props.fetchTestimonials()
 
   }
 
@@ -45,7 +48,7 @@ class Properties extends Component {
       <div>
         <Router>
           <div id="properties-nav"><PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} /></div>
-          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} unhideNav={this.unhideNav} propertyArrayIndex={this.propertyArrayIndex} />}/></div>
+          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} testimonials={this.props.testimonials} unhideNav={this.unhideNav} propertyArrayIndex={this.propertyArrayIndex} />}/></div>
         </Router>
       </div>
     )
@@ -59,7 +62,8 @@ const mapStateToProps = (state) => {
   return {
     properties: state.properties.properties,
     agents: state.agents.agents,
-    images: state.images.images
+    images: state.images.images,
+    testimonials: state.testimonials.testimonials
   };
 };
 
@@ -67,7 +71,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchProperties: () => dispatch(fetchProperties()),
     fetchAgents: () => dispatch(fetchAgents()),
-    fetchImages: () => dispatch(fetchImages())
+    fetchImages: () => dispatch(fetchImages()),
+    fetchTestimonials: () => dispatch(fetchTestimonials())
   };
 };
 

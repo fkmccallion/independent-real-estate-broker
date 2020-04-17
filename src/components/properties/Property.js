@@ -1,7 +1,9 @@
 import React from 'react'
 import Agent from '../agents/Agent';
+import Testimonial from '../testimonials/Testimonial'
 
-const Property = ({match, properties, agents, images, unhideNav, propertyArrayIndex}) => {
+
+const Property = ({match, properties, agents, images, testimonials, unhideNav, propertyArrayIndex}) => {
 
   // stateless component due to project requirements
 
@@ -21,9 +23,12 @@ const Property = ({match, properties, agents, images, unhideNav, propertyArrayIn
         )}
       </p>
       <div className="properties-description">{properties[propertyArrayIndex(match.params.propertyId)].description}</div>
-      <span className="properties-header-text">Listing Agent Representing {properties[propertyArrayIndex(match.params.propertyId)].client}:</span>
+      <span className="properties-header-text">Represented {properties[propertyArrayIndex(match.params.propertyId)].client}:</span>
       <Agent agent={agents.find(agent => agent.id === properties[propertyArrayIndex(match.params.propertyId)].agent_id)} />
-
+      {testimonials.find(testimonial => testimonial.agent_id === properties[propertyArrayIndex(match.params.propertyId)].agent_id) ? <span className="properties-header-text">Agent Testimonial:</span> : null}
+      {testimonials.filter(testimonial => testimonial.agent_id === properties[propertyArrayIndex(match.params.propertyId)].agent_id).map(testimonial =>
+        <Testimonial testimonial={testimonial} />
+      )}
     </div>
   )
 }

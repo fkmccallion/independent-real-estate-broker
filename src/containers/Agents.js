@@ -8,16 +8,6 @@ import Agent from '../components/agents/Agent';
 import '../agents.css';
 
 
-
-
-//import { BrowserRouter as Router, Route } from 'react-router-dom';
-//import NavbarAgents from '../components/agents/NavbarAgents';
-// <Router>
-//   <NavbarAgents agents={this.props.agents} />
-//   <Route exact path={`${this.props.match.url}/:agentId`} render={routerProps => <Agent {...routerProps} agents={this.props.agents} />}/>
-// </Router>
-
-
 class Agents extends Component {
 
   componentDidMount() {
