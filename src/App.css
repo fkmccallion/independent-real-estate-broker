@@ -23,6 +23,9 @@ header {
 
 .app-navlink:hover {
   background-color: orange;
+  color: white;
+  text-decoration: none;
+  padding: 13px 10% 14px 10%;
 }
 
 

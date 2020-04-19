@@ -33,6 +33,12 @@ a {
   color: #333;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
 .agent-hide {
   display: none;
 }
