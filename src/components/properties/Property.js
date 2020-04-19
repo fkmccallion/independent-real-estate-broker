@@ -2,6 +2,9 @@ import React from 'react'
 import Agent from '../agents/Agent';
 import Testimonial from '../testimonials/Testimonial'
 
+// Bootstrap style
+import Image from 'react-bootstrap/Image'
+
 
 const Property = ({match, properties, agents, images, testimonials, unhideNav, propertyArrayIndex}) => {
 
@@ -19,7 +22,7 @@ const Property = ({match, properties, agents, images, testimonials, unhideNav, p
         </p>
       <p>
         {images.filter(image => image.property_id === properties[propertyArrayIndex(match.params.propertyId)].id).map(image =>
-          <img alt={image.title} src={image.img_url} width="40%" />
+          <Image thumbnail alt={image.title} src={image.img_url} width="40%" />
         )}
       </p>
       <div className="properties-description">{properties[propertyArrayIndex(match.params.propertyId)].description}</div>

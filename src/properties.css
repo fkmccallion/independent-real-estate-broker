@@ -43,19 +43,19 @@
 .properties-overlay-text {
   position: absolute;
   width: 100%;
-  top: 130px;
+  top: 111px;
   left: 0px;
   font-weight: bolder;
   font-size: xx-large;
-  transform: rotate(-36deg);
-  -moz-transform:rotate(-36deg);
-  -webkit-transform:rotate(-36deg);
-  -o-transform:rotate(-36deg);
-  -ms-transform:rotate(-36deg);
+  transform: rotate(-32deg);
+  -moz-transform:rotate(-32deg);
+  -webkit-transform:rotate(-32deg);
+  -o-transform:rotate(-32deg);
+  -ms-transform:rotate(-32deg);
 }
 
 .properties-overlay-text span {
   background: rgba(0, 0, 0, 0.5);
-  padding: 0px 175px 0px 175px;
+  padding: 0px 170px 0px 170px;
   color: white;
 }

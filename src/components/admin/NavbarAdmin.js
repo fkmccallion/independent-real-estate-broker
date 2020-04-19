@@ -1,6 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
+// Bootstrap style
+import Navbar from 'react-bootstrap/Navbar'
+
 class NavbarAdmin extends React.Component {
   render() {
     return (

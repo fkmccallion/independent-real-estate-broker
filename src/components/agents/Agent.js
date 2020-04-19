@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Bootstrap style
 import Image from 'react-bootstrap/Image'
 
 const Agent = agent => {
