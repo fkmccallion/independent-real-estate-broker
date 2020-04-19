@@ -1,9 +1,5 @@
 import React from 'react';
 import './App.css';
-// Import for future use of Material-UI
-import 'typeface-roboto';
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
-import ThreeDRotation from '@material-ui/icons/ThreeDRotation';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -18,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img id="app-logo" src={logo} alt="logo" height="150px" />
+        <img id="app-logo" src={logo} alt="logo" height="100px" />
       </header>
       <div>
         <Router>

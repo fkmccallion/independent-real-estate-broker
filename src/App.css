@@ -3,7 +3,7 @@
 }
 
 header {
-  height: 150px;
+
 }
 
 .app-navbar {
@@ -12,20 +12,20 @@ header {
   border-bottom: solid;
   border-color: orange;
   border-width: thin;
-  padding: 10px 0px 10px 0px;
-  font-size: x-large;
+  padding: 5px 0px 5px 0px;
+  font-size: large;
 }
 
 .app-navlink {
   color: white;
-  padding: 10px 10% 10px 10%;
+  padding: 5px 10% 5px 10%;
 }
 
 .app-navlink:hover {
   background-color: orange;
   color: white;
   text-decoration: none;
-  padding: 13px 10% 14px 10%;
+  padding: 8px 10% 8px 10%;
 }
 
 
