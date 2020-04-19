@@ -8,6 +8,8 @@ import thunk from 'redux-thunk';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 let store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
