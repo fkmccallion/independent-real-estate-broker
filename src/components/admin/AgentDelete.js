@@ -44,6 +44,7 @@ class AgentDelete extends Component {
           <option value="">Choose:</option>
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
+        <br /><br />
         <div id="adminDeleteForm" className="admin-hide">
           <form onSubmit={event => this.handleSubmit(event)}>
             <input type="submit" />

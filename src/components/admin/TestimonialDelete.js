@@ -63,6 +63,7 @@ class TestimonialDelete extends Component {
           <form onSubmit={event => this.handleSubmit(event)}>
             <input type="submit" value="Confirm Delete" />
           </form>
+          <br /><br />
         </div>
         <div id="adminTestimonialDisplay" className="admin-hide">
           {this.state.testimonials.map(testimonial => <p>{testimonial.comment}<br /><button onClick={event => this.confirmSubmitPane(event, testimonial)}>delete</button></p>)}

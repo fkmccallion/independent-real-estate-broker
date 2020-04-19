@@ -50,6 +50,7 @@ class ImageDelete extends Component {
           <option value="">Select Agent:</option>
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
+        <br /><br />
         <div id="adminAddPropertyImageForm" className="admin-hide">
           <h4>Selected Property: {this.state.address}</h4>
           <form onSubmit={event => this.handleImageSubmit(event)}>
@@ -69,7 +70,7 @@ class ImageDelete extends Component {
         {this.state.properties.map(property =>
           <p>
             {property.address} Images:<br />
-            {this.props.images.filter(image => image.property_id === property.id).map(image => <p><img src={image.img_url} alt={image.title} className="admin-thumbnail" /><br /><button onClick={event => this.handleDeleteImage(event, image)}>Commit Delete</button></p>)}
+          {this.props.images.filter(image => image.property_id === property.id).map(image => <p><img src={image.img_url} alt={image.title} className="admin-thumbnail" /><br /><br /><button onClick={event => this.handleDeleteImage(event, image)}>Commit Delete</button><hr width="300" /></p>)}
 
           </p>
         )}

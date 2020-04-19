@@ -62,11 +62,13 @@ class PropertyDelete extends Component {
           <option value="">Choose:</option>
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
+        <br /><br />
         <div id="submitPane" className="admin-hide">
           <h4>Selected Property: {this.state.selected_property.address}</h4>
           <form onSubmit={event => this.handleSubmit(event)}>
             <input type="submit" value="Confirm Delete" />
           </form>
+          <br /><br />
         </div>
         <div id="adminPropertyDisplay" className="admin-hide">
           {this.state.properties.map(property => <p>{property.address}<br /><button onClick={event => this.confirmSubmitPane(event, property)}>delete</button></p>)}

@@ -126,6 +126,7 @@ class PropertyUpdate extends Component {
           <option value="">Select Agent:</option>
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
+        <br /><br />
         <div id="adminUpdatePropertyUpdateForm" className="admin-hide">
           <h4>Selected Property: {this.state.address}</h4>
           <form onSubmit={event => this.handlePropertyUpdateSubmit(event)}>
@@ -252,6 +253,7 @@ class PropertyUpdate extends Component {
             </p>
             <input type="submit" value="Submit Property Update" />
           </form>
+          <br /><br />
         </div>
         {this.state.properties.map(property => <p>{property.address}<br /><button onClick={event => this.handleEditProperty(event, property)}>Edit Property</button></p>)}
       </div>

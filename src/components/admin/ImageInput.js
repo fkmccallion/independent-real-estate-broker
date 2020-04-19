@@ -104,6 +104,7 @@ class ImageInput extends Component {
           <option value="">Select Agent:</option>
           {this.props.agents.map(agent => <option key={agent.id} value={agent.id}>{agent.first_name + " " + agent.last_name}</option>)}
         </select>
+        <br /><br />
         <div id="adminAddPropertyImageForm" className="admin-hide">
           <h4>Selected Property: {this.state.address}</h4>
           <form onSubmit={event => this.handleImageSubmit(event)}>
@@ -127,6 +128,7 @@ class ImageInput extends Component {
             </p>
             <input type="submit" value="Submit Property Image" />
           </form>
+          <br />
           <h5>{this.state.address} Images:</h5>
           {this.state.images.map(image => <img src={image.img_url} alt={image.title} className="admin-thumbnail" />)}
         </div>

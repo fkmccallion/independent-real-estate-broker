@@ -5,3 +5,7 @@
 .admin-thumbnail {
   height: 100px;
 }
+
+.admin-font-size {
+  font-size: small;
+}
