@@ -18,7 +18,7 @@ header {
 
 .app-navlink {
   color: white;
-  padding: 5px 10% 5px 10%;
+  padding: 5px 10% 5px 10% ;
 }
 
 .app-navlink:hover {
@@ -66,5 +66,4 @@ header {
 
 #app-logo {
   display: block;
-  margin-left: 5%;
 }

@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 
-import poppy from '../imgs/ca-poppy.jpg'
-import house1 from '../imgs/house-on-hill.jpg'
-import house2 from '../imgs/front-yard.jpg'
+import poppy from '../imgs/ca-poppy.jpeg'
+import beachView from '../imgs/beach-view.jpeg'
+import beachHouse from '../imgs/house-on-beach.jpeg'
+import houseHill from '../imgs/house-on-hill.jpg'
+import pier from '../imgs/pier.jpeg'
+
+
+import '../home.css';
 
 
 class Home extends Component {
@@ -12,44 +17,40 @@ class Home extends Component {
 
     return (
       <div>
-        <Carousel interval="5000" pause="false">
+        <Carousel interval="5000" pause="false" indicators="false" wrap="false">
           <Carousel.Item>
             <img
-              height="500"
+              height="400"
               className="d-block w-100"
               src={poppy}
               alt="First slide"
             />
-            <Carousel.Caption>
-              <h3>Ventana Properties</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              height="500"
+              height="400"
               className="d-block w-100"
-              src={house1}
+              src={beachView}
               alt="First slide"
             />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
-              height="500"
+              height="400"
               className="d-block w-100"
-              src={house2}
+              src={houseHill}
               alt="Third slide"
             />
-
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
           </Carousel.Item>
+          <Carousel.Item>
+            <img
+              height="400"
+              className="d-block w-100"
+              src={beachHouse}
+              alt="Third slide"
+            />
+          </Carousel.Item>
+
         </Carousel>
 
 

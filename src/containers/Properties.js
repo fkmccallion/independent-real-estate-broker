@@ -15,7 +15,6 @@ import '../testimonials.css';
 class Properties extends Component {
 
   componentDidMount() {
-
     this.props.fetchProperties()
     this.props.fetchAgents()
     this.props.fetchImages()
