@@ -20,7 +20,6 @@ export default (state = { properties: [] }, action) => {
       // splice out deleted property from state
       let identifiedPropertyIndexInArray = state.properties.indexOf(state.properties.find(property => property.id === action.property.id))
       state.properties.splice(identifiedPropertyIndexInArray, 1)
-
       return {
         properties: state.properties
       }

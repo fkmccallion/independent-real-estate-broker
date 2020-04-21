@@ -1,29 +1,20 @@
-export default (state = { agents: [], requesting: false}, action) => {
+export default (state = { agents: [] }, action) => {
 
   switch (action.type) {
-    case 'START_ADDING_AGENTS_REQUEST':
-      return {
-        ...state,
-        agents: [...state.agents],
-        requesting: true
-      }
     case 'POPULATE_AGENTS':
       return {
         ...state,
-        agents: action.agents,
-        requesting: false
+        agents: action.agents
       }
     case 'ADD_AGENT':
       return {
         // add new agent to existing state
-        agents: [...state.agents, action.agents[action.agents.length - 1]],
-        requesting: false
+        agents: [...state.agents, action.agents[action.agents.length - 1]]
       }
     case 'UPDATE_AGENT':
       return {
         // map through and replace updated agent in state
-        agents: state.agents.map(agent => (agent.id === action.agent.id) ? action.agent : agent),
-        requesting: false
+        agents: state.agents.map(agent => (agent.id === action.agent.id) ? action.agent : agent)
       }
     case 'DELETE_AGENT':
       // splice out deleted agent from state

@@ -86,7 +86,6 @@ export const deleteAgent = agent_id => {
 export function fetchAgents() {
 
   return (dispatch) => {
-    dispatch({ type: 'START_ADDING_AGENTS_REQUEST' });
     fetch(AGENTS_URL)
       .then(response => response.json())
       .then(agents => dispatch({ type: 'POPULATE_AGENTS', agents }));
