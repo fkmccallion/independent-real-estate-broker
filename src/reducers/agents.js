@@ -23,7 +23,6 @@ export default (state = { agents: [] }, action) => {
       return {
         agents: state.agents
       }
-
     default:
       return state;
   }
