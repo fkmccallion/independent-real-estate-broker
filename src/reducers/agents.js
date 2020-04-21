@@ -15,7 +15,9 @@ export default (state = { agents: [], requesting: false}, action) => {
       }
     case 'ADD_AGENT':
       return {
-        ...state
+        // add new agent to existing state
+        agents: [...state.agents, action.agents[action.agents.length - 1]],
+        requesting: false
       }
     case 'UPDATE_AGENT':
       return {

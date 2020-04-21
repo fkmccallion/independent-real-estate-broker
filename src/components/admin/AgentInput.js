@@ -54,6 +54,7 @@ class AgentInput extends Component {
   }
 
   handleSubmit = event => {
+    event.preventDefault();
     this.props.addAgent(this.state)
     this.setState({
       first_name: "",

@@ -3,31 +3,29 @@ const AGENTS_URL = `${BASE_URL}/agents`
 
 export const addAgent = agent => {
 
-  function addAgent() {
-    let configObj = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        'first_name': agent.first_name,
-        'last_name': agent.last_name,
-        'biography': agent.biography,
-        'phone': agent.phone,
-        'email': agent.email,
-        'bre_number': agent.bre_number,
-        'img_url': agent.img_url ? agent.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=676a86b1-5bb6-4911-8834-694b23a6630c"
-      })
-    };
-    fetch(AGENTS_URL, configObj);
-  }
+  let configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      'first_name': agent.first_name,
+      'last_name': agent.last_name,
+      'biography': agent.biography,
+      'phone': agent.phone,
+      'email': agent.email,
+      'bre_number': agent.bre_number,
+      'img_url': agent.img_url ? agent.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=676a86b1-5bb6-4911-8834-694b23a6630c"
+    })
+  };
 
-  addAgent()
-
-  return {
-    type: 'ADD_AGENT',
-    agent
+  return (dispatch) => {
+    fetch(AGENTS_URL, configObj)
+      .then(response => response.json())
+      .then(agents => { console.log(agents)
+        dispatch({ type: 'ADD_AGENT', agents })
+      });
   };
 
 };
