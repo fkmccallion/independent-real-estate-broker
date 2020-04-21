@@ -23,7 +23,7 @@ export const addAgent = agent => {
   return (dispatch) => {
     fetch(AGENTS_URL, configObj)
       .then(response => response.json())
-      .then(agents => { console.log(agents)
+      .then(agents => {
         dispatch({ type: 'ADD_AGENT', agents })
       });
   };
@@ -32,58 +32,54 @@ export const addAgent = agent => {
 
 export const updateAgent = agent => {
 
-  function updateAgent() {
-    let configObj = {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        'id': agent.id,
-        'first_name': agent.first_name,
-        'last_name': agent.last_name,
-        'biography': agent.biography,
-        'phone': agent.phone,
-        'email': agent.email,
-        'bre_number': agent.bre_number,
-        'img_url': agent.img_url
-      })
-    };
-    fetch(AGENTS_URL + `/${agent.id}`, configObj);
-  }
+  let configObj = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      'id': agent.id,
+      'first_name': agent.first_name,
+      'last_name': agent.last_name,
+      'biography': agent.biography,
+      'phone': agent.phone,
+      'email': agent.email,
+      'bre_number': agent.bre_number,
+      'img_url': agent.img_url
+    })
+  };
 
-  updateAgent()
-
-  return {
-    type: 'UPDATE_AGENT',
-    agent
-  }
+  return (dispatch) => {
+    fetch(AGENTS_URL + `/${agent.id}`, configObj)
+      .then(response => response.json())
+      .then(agent => {
+        dispatch({ type: 'UPDATE_AGENT', agent })
+      });
+  };
 
 }
 
 export const deleteAgent = agent_id => {
 
-  function deleteAgent() {
-    let configObj = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        'id': agent_id.id
-      })
-    };
-    fetch(AGENTS_URL + `/${agent_id.id}`, configObj);
-  }
+  let configObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      'id': agent_id.id
+    })
+  };
 
-  deleteAgent()
-
-  return {
-    type: 'DELETE_AGENT',
-    agent_id
-  }
+  return (dispatch) => {
+    fetch(AGENTS_URL + `/${agent_id.id}`, configObj)
+      .then(response => response.json())
+      .then(agent => {
+        dispatch({ type: 'DELETE_AGENT', agent })
+      });
+  };
 
 }
 

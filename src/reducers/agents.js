@@ -21,12 +21,18 @@ export default (state = { agents: [], requesting: false}, action) => {
       }
     case 'UPDATE_AGENT':
       return {
-        ...state
+        // map through and replace updated agent in state
+        agents: state.agents.map(agent => (agent.id === action.agent.id) ? action.agent : agent),
+        requesting: false
       }
     case 'DELETE_AGENT':
+      // splice out deleted agent from state
+      let identifiedAgentIndexInArray = state.agents.indexOf(state.agents.find(agent => agent.id === action.agent.id))
+      state.agents.splice(identifiedAgentIndexInArray, 1)
       return {
-        ...state
+        agents: state.agents
       }
+
     default:
       return state;
   }
