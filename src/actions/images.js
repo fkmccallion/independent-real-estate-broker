@@ -52,4 +52,5 @@ export function fetchImages() {
       .then(response => response.json())
       .then(images => dispatch({ type: 'POPULATE_IMAGES', images }));
   };
+  
 }
