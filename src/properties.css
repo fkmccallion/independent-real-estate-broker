@@ -1,6 +1,5 @@
 .properties-header-text {
   font-size: xx-large;
-  font-weight: bold;
 }
 
 .properties-details {
@@ -31,9 +30,12 @@
 }
 
 .properties-header {
-  background: rgba(255, 165, 0, 0.2);
+  background: rgba(255, 165, 0, 0.5);
   padding: 15px 0px 15px 0px;
   margin-top: 25px;
+  border-width: thin;
+  border-top-style: solid;
+  border-bottom-style: solid;
 }
 
 .properties-overlay-container {

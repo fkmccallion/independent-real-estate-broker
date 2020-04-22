@@ -17,7 +17,7 @@ class PropertiesList extends React.Component {
       <div className="properties-spacing">
         <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
           <div className="properties-overlay-container">
-            <Image thumbnail alt={property.title} src={this.propertyImage(property)} width="400" height="300" />
+            <Image thumbnail alt={property.title} src={this.propertyImage(property)} width="400"/>
             <span className="properties-overlay-text"><span>SOLD</span></span>
           </div>
           <span className="properties-header-text">{property.address}</span><br />
