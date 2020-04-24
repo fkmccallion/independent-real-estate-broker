@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Testimonial = testimonial => {
-
   return (
     <div className="testimonial-card">
       {testimonial.testimonial.comment}

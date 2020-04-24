@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { fetchProperties } from '../actions/properties';
 import { fetchAgents } from '../actions/agents';
@@ -15,6 +15,7 @@ import '../testimonials.css';
 class Properties extends Component {
 
   componentDidMount() {
+
     this.props.fetchProperties()
     this.props.fetchAgents()
     this.props.fetchImages()
@@ -46,8 +47,12 @@ class Properties extends Component {
     return (
       <div>
         <Router>
-          <div id="properties-nav"><PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} /></div>
-          <div id="properties-display"><Route exact path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} properties={this.props.properties} agents={this.props.agents} images={this.props.images} testimonials={this.props.testimonials} unhideNav={this.unhideNav} propertyArrayIndex={this.propertyArrayIndex} />}/></div>
+          <div id="properties-nav">
+            <PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} />
+          </div>
+          <div id="properties-display">
+            <Route path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} agents={this.props.agents} properties={this.props.properties} images={this.props.images} testimonials={this.props.testimonials} propertyArrayIndex={this.propertyArrayIndex} hideNav={this.hideNav} />}/>
+          </div>
         </Router>
       </div>
     )

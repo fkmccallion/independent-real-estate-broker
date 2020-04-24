@@ -95,9 +95,7 @@ export const deleteProperty = property_id => {
 };
 
 export function fetchProperties() {
-
   return (dispatch) => {
-
     fetch(PROPERTIES_URL)
       .then(response => response.json())
       .then(properties => {

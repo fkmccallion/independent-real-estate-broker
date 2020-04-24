@@ -22,7 +22,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/admin" component={Admin} />
-            <Route exact path="/properties" render={routerProps => <Properties {...routerProps} />} />
+            <Route path="/properties" render={routerProps => <Properties {...routerProps} />} />
             <Route exact path="/agents" component={Agents} />
           </Switch>
         </Router>
