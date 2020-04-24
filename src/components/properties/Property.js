@@ -40,6 +40,7 @@ class Property extends Component {
 
     render() {
 
+
       return (
         <div>
           <div className="properties-header properties-header-text">
@@ -53,18 +54,12 @@ class Property extends Component {
             &nbsp;&nbsp;Living Area: {this.props.properties.map(property => (property.id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].id) ? property.sqft : null)} ft<sup>2</sup>&nbsp;&nbsp; |
             &nbsp;&nbsp;Price: ${this.props.properties.map(property => (property.id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].id) ? property.price : null)}
           </p>
-
           <p>
             {this.props.images.filter(image => image.property_id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].id).map(image =>
               <Image thumbnail alt={image.title} src={image.img_url} width="40%" />
             )}
           </p>
-
-
           <div className="properties-description">{this.props.properties.map(property => (property.id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].id) ? property.description : null)}</div>
-
-
-
           {this.props.agents.filter(agent => agent.id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].agent_id).map(agent =>
             <Agent agent={agent} />
           )}

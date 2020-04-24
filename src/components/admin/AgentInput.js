@@ -15,6 +15,7 @@ class AgentInput extends Component {
       email: "",
       bre_number: "",
       img_url: "",
+      title: "",
       image: null
     };
   }
@@ -92,6 +93,17 @@ class AgentInput extends Component {
                 type="text"
                 onChange={event => this.handleChange(event)}
                 value={this.state.last_name}
+              />
+            </label>
+          </p>
+          <p>
+            <label>
+              Title:
+              <input
+                name="title"
+                type="text"
+                onChange={event => this.handleChange(event)}
+                value={this.state.title}
               />
             </label>
           </p>

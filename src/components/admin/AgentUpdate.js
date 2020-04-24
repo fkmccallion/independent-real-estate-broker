@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateAgent } from '../../actions/agents';
-import { deleteProperty } from '../../actions/properties';
 import { storage } from '../../firebase';
 
 
@@ -11,6 +10,7 @@ class AgentUpdate extends Component {
     id: 0,
     first_name: "",
     last_name: "",
+    title: "",
     biography: "",
     phone: "",
     email: "",
@@ -28,6 +28,7 @@ class AgentUpdate extends Component {
       id: 0,
       first_name: "",
       last_name: "",
+      title: "",
       biography: "",
       phone: "",
       email: "",
@@ -54,6 +55,7 @@ class AgentUpdate extends Component {
         id: selectedAgent.id,
         first_name: selectedAgent.first_name,
         last_name: selectedAgent.last_name,
+        title: selectedAgent.title,
         biography: selectedAgent.biography,
         phone: selectedAgent.phone,
         email: selectedAgent.email,
@@ -66,6 +68,7 @@ class AgentUpdate extends Component {
         id: 0,
         first_name: "",
         last_name: "",
+        title: "",
         biography: "",
         phone: "",
         email: "",
@@ -148,6 +151,16 @@ class AgentUpdate extends Component {
             </p>
             <p>
               <label>
+                Title:
+                <textarea
+                  name="title"
+                  onChange={event => this.handleChange(event)}
+                  value={this.state.title}
+                />
+              </label>
+            </p>
+            <p>
+              <label>
                 Biography:
                 <textarea
                   name="biography"
@@ -206,8 +219,7 @@ class AgentUpdate extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateAgent: agent => dispatch(updateAgent(agent)),
-    deleteProperty: property_id => dispatch(deleteProperty(property_id))
+    updateAgent: agent => dispatch(updateAgent(agent))
   };
 };
 

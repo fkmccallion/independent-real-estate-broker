@@ -12,6 +12,7 @@ export const addAgent = agent => {
     body: JSON.stringify({
       'first_name': agent.first_name,
       'last_name': agent.last_name,
+      'title': agent.title,
       'biography': agent.biography,
       'phone': agent.phone,
       'email': agent.email,
@@ -42,6 +43,7 @@ export const updateAgent = agent => {
       'id': agent.id,
       'first_name': agent.first_name,
       'last_name': agent.last_name,
+      'title': agent.title,
       'biography': agent.biography,
       'phone': agent.phone,
       'email': agent.email,
