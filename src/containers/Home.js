@@ -21,15 +21,16 @@ class Home extends Component {
               height="400"
               className="d-block w-100"
               src={poppy}
-              alt="First slide"
+              alt="Ventana Poppies"
             />
+
           </Carousel.Item>
           <Carousel.Item>
             <img
               height="400"
               className="d-block w-100"
               src={beachView}
-              alt="First slide"
+              alt="Ventana Beach House"
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -37,7 +38,7 @@ class Home extends Component {
               height="400"
               className="d-block w-100"
               src={houseHill}
-              alt="Third slide"
+              alt="Ventana House on Hill"
             />
           </Carousel.Item>
           <Carousel.Item>
@@ -45,7 +46,7 @@ class Home extends Component {
               height="400"
               className="d-block w-100"
               src={beachHouse}
-              alt="Third slide"
+              alt="Ventana Beach Front"
             />
           </Carousel.Item>
         </Carousel>

@@ -32,13 +32,13 @@ class Property extends Component {
             &nbsp;&nbsp;Living Area: {this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].sqft} ft<sup>2</sup>&nbsp;&nbsp; |
             &nbsp;&nbsp;Price: ${this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].price}
           </p>
+                    <div className="properties-description">{this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].description}</div>
           <p>
             {this.props.images.filter(image => image.property_id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].id).map(image =>
               <Image thumbnail alt={image.title} src={image.img_url} width="40%" />
             )}
           </p>
-          <div className="properties-description">{this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].description}</div>
-          <span className="properties-header-text">Represented {this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].client}:</span>
+          <span className="properties-header-text">Agent Representing {this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].client}:</span>
           <Agent agent={this.props.agents.find(agent => agent.id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].agent_id)} />
           {this.props.testimonials.find(testimonial => testimonial.agent_id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].agent_id) ? <span className="properties-header-text">Agent Testimonial:</span> : null}
           {this.props.testimonials.filter(testimonial => testimonial.agent_id === this.props.properties[this.props.propertyArrayIndex(this.props.match.params.propertyId)].agent_id).map(testimonial =>
