@@ -2,13 +2,24 @@
   text-align: center;
 }
 
-header {
-
+.header {
+    height: 125px;
 }
 
-.app-facebook {
+.app-header {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+}
+
+.app-header-facebook {
   float: right;
   padding: 15px 100px;
+}
+
+.app-header-phone {
+  padding-top: 25px;
+  font-size: xx-large;
 }
 
 #fb-page {
@@ -21,6 +32,10 @@ header {
   vertical-align: middle;
 }
 
+.app-navbar-header {
+  height: 38px;
+}
+
 .app-navbar {
   background-color: #333;
   border-top: solid;
@@ -29,6 +44,7 @@ header {
   border-width: thin;
   padding: 5px 0px 5px 0px;
   font-size: large;
+  height: 38px;
 }
 
 .app-navlink {
@@ -81,4 +97,5 @@ header {
 
 #app-logo {
   display: block;
+  float: left;
 }

@@ -13,17 +13,19 @@ import logo from './imgs/logo-medium.gif'
 function App() {
   return (
     <div className="App">
-      <header>
-        <div className="app-facebook">
-          <a id="fb-page" href="https://www.facebook.com/ventanaproperties.net/" target="_blank" class="fa fa-facebook-square fa-3x"></a>
-          <div id="fb-like" class="fb-like" data-href="https://www.facebook.com/ventanaproperties.net/" data-width="" data-layout="box_count" data-action="like" data-size="small"></div>
+      <div className="header">
+        <div className="app-header">
+          <div className="app-header-facebook">
+            <a id="fb-page" href="https://www.facebook.com/ventanaproperties.net/" target="_blank" class="fa fa-facebook-square fa-3x"></a>
+            <div id="fb-like" class="fb-like" data-href="https://www.facebook.com/ventanaproperties.net/" data-width="" data-layout="box_count" data-action="like" data-size="small"></div>
+          </div>
+          <span className="app-header-phone">805 910-9049</span>
+          <img id="app-logo" src={logo} alt="logo" height="125px" />
         </div>
-      <img id="app-logo" src={logo} alt="logo" height="100px" />
-
-      </header>
+      </div>
       <div>
         <Router>
-          <Navbar />
+          <div className="app-navbar-header"><div className="app-header"><Navbar /></div></div>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/admin" component={Admin} />

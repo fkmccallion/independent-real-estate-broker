@@ -41,6 +41,7 @@
 
 .properties-overlay-container {
   position: relative;
+  z-index: -1;
 }
 
 .properties-overlay-text {
