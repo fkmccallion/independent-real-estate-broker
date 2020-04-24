@@ -14,7 +14,12 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img id="app-logo" src={logo} alt="logo" height="100px" />
+        <div className="app-facebook">
+          <a id="fb-page" href="https://www.facebook.com/ventanaproperties.net/" target="_blank" class="fa fa-facebook-square fa-3x"></a>
+          <div id="fb-like" class="fb-like" data-href="https://www.facebook.com/ventanaproperties.net/" data-width="" data-layout="box_count" data-action="like" data-size="small"></div>
+        </div>
+      <img id="app-logo" src={logo} alt="logo" height="100px" />
+
       </header>
       <div>
         <Router>

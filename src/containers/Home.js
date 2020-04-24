@@ -5,8 +5,6 @@ import poppy from '../imgs/ca-poppy.jpeg'
 import beachView from '../imgs/beach-view.jpeg'
 import beachHouse from '../imgs/house-on-beach.jpeg'
 import houseHill from '../imgs/house-on-hill.jpg'
-import pier from '../imgs/pier.jpeg'
-
 
 import '../home.css';
 
@@ -50,7 +48,6 @@ class Home extends Component {
               alt="Third slide"
             />
           </Carousel.Item>
-
         </Carousel>
 
 
