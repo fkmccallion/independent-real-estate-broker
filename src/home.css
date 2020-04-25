@@ -3,8 +3,8 @@
   border-style: solid;
   border-color: rgba(255, 165, 0);
   font-weight: bolder;
+}
 
-
-
-
+.home-container {
+  z-index: 2;
 }

@@ -7,6 +7,7 @@ import Home from './containers/Home'
 import Admin from './containers/Admin';
 import Agents from './containers/Agents';
 import Properties from './containers/Properties';
+import Calculator from './components/Calculator';
 
 import logo from './imgs/logo-medium.gif'
 
@@ -24,6 +25,7 @@ function App() {
           <div className="app-header-phone">805 910-9049</div>
         </div>
       </div>
+
       <div>
         <Router>
           <div className="app-navbar-header"><div className="app-header"><Navbar /></div></div>
@@ -32,6 +34,7 @@ function App() {
             <Route exact path="/admin" component={Admin} />
             <Route path="/properties" render={routerProps => <Properties {...routerProps} />} />
             <Route exact path="/agents" component={Agents} />
+            <Route exact path="/calculator" component={Calculator} />
           </Switch>
         </Router>
       </div>

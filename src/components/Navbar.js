@@ -29,6 +29,10 @@ class Navbar extends React.Component {
           to="/properties"
           exact
         >Properties</NavLink>
+        <NavLink className="app-navlink"
+          to="/calculator"
+          exact
+        >Calculator</NavLink>
       </div>
     )
   }
