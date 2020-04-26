@@ -22,7 +22,7 @@ function App() {
           </div>
 
           <img id="app-logo" src={logo} alt="logo" height="125px" />
-          <div className="app-header-phone">805 910-9049</div>
+          <div className="app-header-phone"><i>&ldquo; Window Into Your Future &rdquo;</i></div>
         </div>
       </div>
 

@@ -5,6 +5,22 @@
   font-weight: bolder;
 }
 
-.home-container {
-  z-index: 2;
+.home-image-style {
+  height: 175px;
+  margin: 50px 50px 15px 50px;
+}
+
+.home-images {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.home-image-caption {
+  display: block;
+  font-size: x-large;
+}
+
+.home-hide {
+  display: none;
 }
