@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Carousel from 'react-bootstrap/Carousel'
 
+import { fetchProperties } from '../actions/properties';
 import { fetchAgents } from '../actions/agents';
+import { fetchImages } from '../actions/images';
+import { fetchTestimonials } from '../actions/testimonials';
 
 import AgentDetails from '../components/agents/AgentDetails';
 
@@ -24,7 +27,10 @@ import '../home.css';
 class Home extends Component {
 
   componentDidMount() {
+    this.props.fetchProperties()
     this.props.fetchAgents()
+    this.props.fetchImages()
+    this.props.fetchTestimonials()
   }
 
   hideAllbutAgentInfo = () => {
@@ -95,7 +101,7 @@ class Home extends Component {
         <Router>
           <span id="agent-nav">{this.props.agents.map(agent => <><Link to={`/agents/${agent.id}`} onClick={this.hideAllbutAgentInfo}><div className="home-images"><Image className="home-image-style" roundedCircle src={agent.img_url} /><span class="home-image-caption">{agent.first_name}</span></div></Link></>)}</span>
           <Switch>
-            {this.props.agents.map(agent => <Route path={`/agents/${agent.id}`}><AgentDetails agent={agent} /></Route>)}
+            {this.props.agents.map(agent => <Route path={`/agents/${agent.id}`}><AgentDetails agent={agent} agents={this.props.agents} properties={this.props.properties} images={this.props.images} testimonials={this.props.testimonials} /></Route>)}
           </Switch>
         </Router>
 
@@ -108,13 +114,19 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    agents: state.agents.agents
+    properties: state.properties.properties,
+    agents: state.agents.agents,
+    images: state.images.images,
+    testimonials: state.testimonials.testimonials
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAgents: () => dispatch(fetchAgents())
+    fetchProperties: () => dispatch(fetchProperties()),
+    fetchAgents: () => dispatch(fetchAgents()),
+    fetchImages: () => dispatch(fetchImages()),
+    fetchTestimonials: () => dispatch(fetchTestimonials())
   };
 };
 

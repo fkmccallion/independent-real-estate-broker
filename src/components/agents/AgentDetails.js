@@ -1,28 +1,52 @@
-import React from 'react'
+import React, { Component } from 'react';
+
+import Agent from '../agents/Agent';
+import Testimonial from '../testimonials/Testimonial'
+import PropertiesList from '../properties/PropertiesList'
+
 
 // Bootstrap style
 import Image from 'react-bootstrap/Image'
 
-const AgentDetails = agent => {
-  return (
-    <div className="agent-card">
-      <Image roundedCircle className="agent-image"  src={ agent.agent.img_url ?  agent.agent.img_url : "https://firebasestorage.googleapis.com/v0/b/independent-real-estate-broker.appspot.com/o/images%2Fsemper-fi.gif?alt=media&token=d7da8996-c21f-40c0-843d-c7e26a4a688e" } alt={`${agent.agent.first_name} ${agent.agent.last_name} ${agent.agent.bre_number}`} />
-      <span className="agent-contact-info">
-          <b>{agent.agent.first_name + " " + agent.agent.last_name}</b><br />
-          {agent.agent.title}<br />
-          BRE Number: {agent.agent.bre_number}
-          <p>
-            {agent.agent.phone}<br />
-            <a href={`mailto:${agent.agent.email}`}>{agent.agent.email}</a><br />
-          </p>
-      </span>
-      <div className="agent-bio">
-        <i >{agent.agent.biography}</i>
-      </div>
-      <hr />
-    </div>
+class AgentDetails extends Component {
 
-  )
+
+    componentDidMount() {
+      if (this.props.hideNav) {
+        this.props.hideNav()
+      }
+    }
+
+    filteredPropertiesByAgent = (agentId) => {
+      return this.props.properties.filter(property => property.agent_id === agentId)
+    }
+
+    determineIfRoutedFromHomePage = () => {
+      if (this.props.agent) {
+        return this.props.agent
+      } else {
+        return this.props.agents[this.props.agentArrayIndex(this.props.match.params.agentId)]
+      }
+    }
+
+    // Add if statement to stall render until props are populated - empty array evalutates to true so adding .length works
+    render() {
+      if (!this.props.properties.length || !this.props.images.length || !this.props.agents.length || !this.props.testimonials.length) {
+          return <div />
+      }
+
+      return (
+        <div>
+          <Agent agent={this.determineIfRoutedFromHomePage()} />
+          {this.props.testimonials.find(testimonial => testimonial.agent_id === this.determineIfRoutedFromHomePage().id) ? <span className="agent-header-text">Agent Testimonial:</span> : null}
+          {this.props.testimonials.filter(testimonial => testimonial.agent_id === this.determineIfRoutedFromHomePage().id).map(testimonial =>
+            <Testimonial testimonial={testimonial} />
+          )}
+          <PropertiesList images={this.props.images} properties={this.filteredPropertiesByAgent(this.determineIfRoutedFromHomePage().id)} />
+        </div>
+      )
+    }
+
 }
 
-export default AgentDetails
+export default AgentDetails;

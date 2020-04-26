@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/admin" component={Admin} />
             <Route path="/properties" render={routerProps => <Properties {...routerProps} />} />
-            <Route exact path="/agents" component={Agents} />
+            <Route path="/agents" render={routerProps => <Agents {...routerProps} />} />
             <Route exact path="/calculator" component={Calculator} />
           </Switch>
         </Router>

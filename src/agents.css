@@ -9,7 +9,9 @@
   height: 175px;
 }
 
-
+.agent-header-text {
+  font-size: xx-large;
+}
 
 .agent-bio {
   padding: 15px 0px 15px 0px

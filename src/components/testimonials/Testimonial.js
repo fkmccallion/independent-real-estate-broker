@@ -6,7 +6,8 @@ const Testimonial = testimonial => {
       {testimonial.testimonial.comment}
       <br />
       <div>~<b>{testimonial.testimonial.client}{testimonial.testimonial.source ? ` on ${testimonial.testimonial.source}` : null}</b></div>
-    </div>
+      <hr />
+  </div>
   )
 
 }

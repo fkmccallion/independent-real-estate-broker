@@ -6,6 +6,7 @@ import { fetchProperties } from '../actions/properties';
 import { fetchAgents } from '../actions/agents';
 import { fetchImages } from '../actions/images';
 import { fetchTestimonials } from '../actions/testimonials';
+
 import Property from '../components/properties/Property';
 import PropertiesList from '../components/properties/PropertiesList';
 
