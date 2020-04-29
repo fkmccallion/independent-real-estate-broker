@@ -7,6 +7,7 @@
 
 /src/components/Login.js
 /src/actions/login.js
+/src/reducers/login.js
 
 /.pnp
 .pnp.js
