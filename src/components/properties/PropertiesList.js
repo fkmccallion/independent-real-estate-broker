@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // Bootstrap style
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+
+import PropertyNav from './PropertyNav';
 
 class PropertiesList extends React.Component {
 
@@ -15,37 +17,15 @@ class PropertiesList extends React.Component {
   render() {
     // filter sold properties then sort by transaction date
     const renderSoldProperties = this.props.properties.filter(property => property.sold === true).sort((b,a) => (a.transaction_date > b.transaction_date) ? 1 : ((b.transaction_date > a.transaction_date) ? -1 : 0)).map(property =>
-      <div key={property.id} className="properties-spacing">
-        <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
-          <div className="properties-overlay-container">
-            <Image thumbnail alt={property.title} src={this.propertyImage(property)} width="600"/>
-            <span className="properties-overlay-text"><span>SOLD</span></span>
-          </div>
-          <span className="properties-header-text">{property.address}</span><br />
-          <span className="properties-details">
-            {property.city}, {property.state}<br />
-            Bedrooms: {property.bed} -
-            Bathrooms: {property.bath}<br />
-            Price: ${property.price}
-          </span>
-        </Link>
-      </div>
+      <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
+        <PropertyNav property={property} image={this.propertyImage(property)} />
+      </Link>
     )
+    // filter available properties
     const renderAvailableProperties = this.props.properties.filter(property => property.sold === false).map(property =>
-      <div key={property.id} className="properties-spacing">
-        <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
-          <div>
-            <Image thumbnail alt={property.title} src={this.propertyImage(property)} width="400" height="300" />
-          </div>
-          <span className="properties-header-text">{property.address}</span><br />
-          <span className="properties-details">
-            {property.city}, {property.state}<br />
-            Bedrooms: {property.bed} -
-            Bathrooms: {property.bath}<br />
-            Price: ${property.price}<br />
-          </span>
-        </Link>
-      </div>
+      <Link key={property.id} onClick={this.props.hideNav} to={`/properties/${property.id}`}>
+        <PropertyNav property={property} image={this.propertyImage(property)} />
+      </Link>
     )
 
     return (
@@ -53,7 +33,7 @@ class PropertiesList extends React.Component {
         {(renderAvailableProperties.length > 0) ? <div className="properties-header properties-header-text">Featured Properties</div> : <div className="properties-hide">Featured Properties</div>}
         {renderAvailableProperties}
 
-        <div className="properties-header properties-header-text">Properties Sold</div>
+        {(renderSoldProperties.length > 0) ? <div className="properties-header properties-header-text">Properties Sold</div> : <div className="properties-hide">Properties Sold</div>}
         {renderSoldProperties}
       </div>
     )

@@ -9,6 +9,7 @@ import { fetchImages } from '../actions/images';
 import { fetchTestimonials } from '../actions/testimonials';
 
 import AgentDetails from '../components/agents/AgentDetails';
+import PropertiesList from '../components/properties/PropertiesList';
 
 import poppy from '../imgs/ca-poppy.jpeg'
 import beachView from '../imgs/beach-view.jpeg'
@@ -57,7 +58,7 @@ class Home extends Component {
     return (
       <div>
         <div id="home-carousel">
-          <Carousel interval="5000" pause="false" indicators="false" wrap="false">
+          <Carousel interval={5000} pause={false} indicators={false} wrap={false} controls={false}>
             <Carousel.Item>
               <img
                 height="400"
@@ -108,6 +109,8 @@ class Home extends Component {
               />
             </Carousel.Item>
           </Carousel>
+
+        <PropertiesList images={this.props.images} properties={this.props.properties.filter(property => property.sold === false)} />
 
         <div className="home-agent-header">Meet The Team</div>
         </div>
