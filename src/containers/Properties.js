@@ -16,12 +16,10 @@ import '../testimonials.css';
 class Properties extends Component {
 
   componentDidMount() {
-
     this.props.fetchProperties()
     this.props.fetchAgents()
     this.props.fetchImages()
     this.props.fetchTestimonials()
-
   }
 
   propertyArrayIndex = (propertyId) => {
@@ -33,6 +31,9 @@ class Properties extends Component {
     const display = document.getElementById('properties-display')
     nav.classList.add('properties-hide')
     display.classList.remove('properties-hide')
+
+    const redundantInfo = document.getElementById('redundantAgentInfo')
+    if (redundantInfo) {redundantInfo.classList.add('properties-hide')}
   }
 
   unhideNav = () => {
@@ -42,6 +43,14 @@ class Properties extends Component {
     display.classList.add('properties-hide')
   }
 
+  determineAgentOrAllProperties = () => {
+    if (this.props.agentProperties) {
+      return this.props.agentProperties
+    } else {
+      return this.props.properties
+    }
+  }
+
 
   render() {
 
@@ -49,10 +58,11 @@ class Properties extends Component {
       <div>
         <Router>
           <div id="properties-nav">
-            <PropertiesList properties={this.props.properties} images={this.props.images} hideNav={this.hideNav} />
+            <PropertiesList properties={this.determineAgentOrAllProperties()} images={this.props.images} hideNav={this.hideNav} />
           </div>
           <div id="properties-display">
-            <Route path={`${this.props.match.url}/:propertyId`} render={routerProps => <Property {...routerProps} agents={this.props.agents} properties={this.props.properties} images={this.props.images} testimonials={this.props.testimonials} propertyArrayIndex={this.propertyArrayIndex} hideNav={this.hideNav} />}/>
+            {/* removed match.url variable due to being called from various sources} */}
+            <Route path={`/properties/:propertyId`} render={routerProps => <Property {...routerProps} agents={this.props.agents} properties={this.props.properties} images={this.props.images} testimonials={this.props.testimonials} propertyArrayIndex={this.propertyArrayIndex} hideNav={this.hideNav} />}/>
           </div>
         </Router>
       </div>

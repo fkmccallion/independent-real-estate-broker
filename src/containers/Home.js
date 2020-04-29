@@ -38,6 +38,18 @@ class Home extends Component {
     const agentNav = document.getElementById('agent-nav')
     nav.classList.add('home-hide')
     agentNav.classList.add('home-hide')
+
+    const redundantAgentInfo = document.getElementById('redundantAgentInfo')
+    if (redundantAgentInfo) {redundantAgentInfo.classList.remove('properties-hide')}
+
+    const redundantPropertyInfo = document.getElementById('redundantPropertyInfo')
+    if (redundantPropertyInfo) {redundantPropertyInfo.classList.remove('properties-hide')}
+
+    const propertiesDisplay = document.getElementById('properties-display')
+    if (propertiesDisplay) {propertiesDisplay.classList.add('properties-hide')}
+
+    const propertiesNav = document.getElementById('properties-nav')
+    if (propertiesNav) {propertiesNav.classList.remove('properties-hide')}
   }
 
   render() {
@@ -96,8 +108,9 @@ class Home extends Component {
               />
             </Carousel.Item>
           </Carousel>
-        </div>
 
+        <div className="home-agent-header">Meet The Team</div>
+        </div>
         <Router>
           <span id="agent-nav">{this.props.agents.map(agent => <><Link to={`/agents/${agent.id}`} onClick={this.hideAllbutAgentInfo}><div className="home-images"><Image className="home-image-style" roundedCircle src={agent.img_url} /><span class="home-image-caption">{agent.first_name}</span></div></Link></>)}</span>
           <Switch>

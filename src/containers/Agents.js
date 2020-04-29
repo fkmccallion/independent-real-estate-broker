@@ -32,6 +32,9 @@ class Agents extends Component {
     const display = document.getElementById('agents-display')
     nav.classList.add('agent-hide')
     display.classList.remove('agent-hide')
+
+    const redundantAgentInfo = document.getElementById('redundantAgentInfo')
+    if (redundantAgentInfo) {redundantAgentInfo.classList.remove('properties-hide')}
   }
 
   render() {

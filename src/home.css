@@ -7,7 +7,7 @@
 
 .home-image-style {
   height: 175px;
-  margin: 50px 50px 15px 50px;
+  margin: 15px 50px 15px 50px;
 }
 
 .home-images {
@@ -23,4 +23,9 @@
 
 .home-hide {
   display: none;
+}
+
+.home-agent-header {
+  font-size: xx-large;
+  margin: 50px 50px 15px 50px;
 }

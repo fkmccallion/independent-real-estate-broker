@@ -8,7 +8,12 @@ body {
 }
 
 .header {
-    height: 125px;
+  height: 125px;
+}
+
+.footer {
+
+  color: white;
 }
 
 .app-header {
@@ -16,6 +21,13 @@ body {
   position: fixed;
   width: 100%;
   z-index: 1;
+}
+
+.app-footer {
+  background-color: #333;
+  width: 100%;
+  padding-top: 50px;
+
 }
 
 .app-header-facebook {
@@ -56,14 +68,14 @@ body {
 
 .app-navlink {
   color: white;
-  padding: 5px 10% 5px 10% ;
+  padding: 5px 5% 5px 5% ;
 }
 
 .app-navlink:hover {
   background-color: orange;
   color: white;
   text-decoration: none;
-  padding: 8px 10% 8px 10%;
+  padding: 8px 5% 8px 5%;
 }
 
 

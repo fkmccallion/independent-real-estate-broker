@@ -47,7 +47,7 @@
 .properties-overlay-text {
   position: absolute;
   width: 100%;
-  top: 111px;
+  top: 175px;
   left: 0px;
   font-weight: bolder;
   font-size: xx-large;
@@ -60,6 +60,6 @@
 
 .properties-overlay-text span {
   background: rgba(0, 0, 0, 0.5);
-  padding: 0px 170px 0px 170px;
+  padding: 0px 280px 0px 280px;
   color: white;
 }

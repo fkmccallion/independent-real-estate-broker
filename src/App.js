@@ -10,6 +10,7 @@ import Properties from './containers/Properties';
 import Calculator from './components/Calculator';
 
 import logo from './imgs/logo-medium.gif'
+import realtor from './imgs/realtor.gif'
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
       <div className="header">
         <div className="app-header">
           <div className="app-header-facebook">
-            <a id="fb-page" href="https://www.facebook.com/ventanaproperties.net/" target="_blank" class="fa fa-facebook-square fa-3x"></a>
-            <div id="fb-like" class="fb-like" data-href="https://www.facebook.com/ventanaproperties.net/" data-width="" data-layout="box_count" data-action="like" data-size="small"></div>
+            <a id="fb-page" href="https://www.facebook.com/ventanaproperties.net/" target="_blank" className="fa fa-facebook-square fa-3x"></a>
+            <div id="fb-like" className="fb-like" data-href="https://www.facebook.com/ventanaproperties.net/" data-width="" data-layout="box_count" data-action="like" data-size="small"></div>
           </div>
 
           <img id="app-logo" src={logo} alt="logo" height="125px" />
@@ -37,6 +38,12 @@ function App() {
             <Route exact path="/calculator" component={Calculator} />
           </Switch>
         </Router>
+      </div>
+      <div className="footer">
+        <div className="app-footer">
+          &copy; 2014 - 2020 Ventana Properties
+
+        </div>
       </div>
     </div>
   );

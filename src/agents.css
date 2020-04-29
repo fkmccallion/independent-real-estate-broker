@@ -38,7 +38,11 @@ a {
 a:hover {
   text-decoration: none;
   color: #333;
-  font-weight: bold;
+}
+
+a:hover b {
+  font-weight: normal;
+  color: orange;
 }
 
 .agent-hide {
