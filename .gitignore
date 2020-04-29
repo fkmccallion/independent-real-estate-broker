@@ -5,6 +5,8 @@
 /src/imgs
 /src/firebase
 
+/src/components/Login.js
+
 /.pnp
 .pnp.js
 
