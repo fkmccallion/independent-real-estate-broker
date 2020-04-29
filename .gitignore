@@ -9,7 +9,7 @@
 /src/actions/login.js
 /src/reducers/login.js
 
-/src/api/controllers/login_controller.rb
+/api/app/controllers/login_controller.rb
 
 /.pnp
 .pnp.js
