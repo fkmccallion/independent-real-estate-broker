@@ -31,12 +31,10 @@
 }
 
 .properties-header {
-  background: rgba(248, 148, 6, .2);
+
   padding: 15px 0px 15px 0px;
   margin-top: 25px;
-  border-width: thin;
-  border-top-style: solid;
-  border-bottom-style: solid;
+
 }
 
 .properties-overlay-container {

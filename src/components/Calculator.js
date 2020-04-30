@@ -9,13 +9,15 @@ class Calculator extends Component {
   }
 
   render() {
+
     return(
       <div className="container">
         <div className="widget">
-          <iframe className="frame" src="https://www.mortgagecalculator.net/embeddable/v2/?size=1&textColor=003140&backgroundColor=c78625" width="104%" frameborder="0" scrolling="false" height="500"></iframe>
+          <iframe src="https://www.mortgagecalculator.net/embeddable/v2/?size=1&textColor=003140&backgroundColor=ffead1" width="100%" frameborder="0" scrolling="no" height="330"></iframe>
         </div>
       </div>
     )
+    
   }
 
 }
