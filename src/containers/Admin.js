@@ -37,7 +37,6 @@ class Admin extends Component {
       <div>
 
         <h1>Admin</h1>
-        {console.log(this.props)}
         <Router>
           <NavbarAdmin />
           <Route exact path="/admin/agents/new" component={AgentInput} />

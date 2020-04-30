@@ -9,20 +9,26 @@ import Agents from './containers/Agents';
 import Properties from './containers/Properties';
 import Calculator from './components/Calculator';
 import Login from './components/Login'
+import { useAuth0 } from "./react-auth0-spa";
 
 import logo from './imgs/logo-medium.gif'
 import realtor from './imgs/realtor.gif'
 
-
-const PrivateRoute = ({ component: Component}) => (
-  <Route render={() => (
-      false
-        ? <Component />
-        : <Redirect to="/login" />
-  )} />
-)
-
 function App() {
+
+  const { loading, isAuthenticated } = useAuth0();
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const PrivateRoute = ({ component: Component }) => (
+    <Route render={() => (
+      isAuthenticated
+        ? <Component />
+        : <Redirect to='/login' />
+    )} />
+  )
+
   return (
     <div className="App">
       <div className="header">

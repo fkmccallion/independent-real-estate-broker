@@ -8,6 +8,7 @@
 /src/components/Login.js
 /src/actions/login.js
 /src/reducers/login.js
+/src/auth_config.json
 
 /api/app/controllers/login_controller.rb
 
